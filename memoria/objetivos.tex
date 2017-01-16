@@ -2,47 +2,67 @@
 \label{chap:objetivos}
 
 \noindent
-Para este capítulo, la normativa indica:
+\drop{L}a propuesta de este TFG se plantea para fomentar la capacidad de los niños a la hora de utilizar su
+razonamiento en el proceso creativo en el transcurso de creación de un juego. La idea principal parte de que los niños no sean simplemente consumidores de contenido y que tengan la posibilidad de crearlo, que ellos mismos sean capaces de tomar decisiones durante el juego de una manera tangible e intuitiva. 
 
-«Concretar y exponer el problema a resolver describiendo el entorno de trabajo,
-la situación y detalladamente qué se pretende obtener. Limitaciones y
-condicionantes a considerar para la resolución del problema (lenguaje de
-construcción, equipo físico, equipo lógico de base y de apoyo, etc.). Si se
-considera necesario, esta sección puede titularse ``Objetivos e hipótesis de
-trabajo''. En este caso, se añadirán las hipótesis de trabajo que el alumno, con
-su TFG, pretende demostrar».
+Este proyecto pretende abordar este problema introduciendo TUIOs accionados, que son controlables por el sistema, con el fin de representar cambios dinámicos de la información, combinando elementos tangibles, gráficos y nuevas tecnologías.
+
+La Figura ~\ref{fig:SIS} muestra una representación del modelo propuesto de interacción para la plataforma interactiva de juego en este proyecto. Está formado por dos componentes tangibles principales, TUIO1 y TUO2.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{SIS.pdf}
+\caption{Modelo de interacción de interfaz TUI para este proyecto}
+\label{fig:SIS}
+\end{center}
+\end{figure}
+
+El sistema de juego propuesto abarca desde el desarrollo de una secuencia, a partir de los criterios de creación del niño, hasta la resolución de pequeños problemas de lógica. El elemento TUIO1 consta de una pantalla táctil, encargada de la representación gráfica tangible e intangible del juego. Si bien los elementos tangibles juegan el papel central en la representación y control en un TUI, la representación intangible es también importante, añadiendo gráficos y audio, siendo esta información dinámica proporcionada, una gran ayuda a la hora de la realización de la interacción. 
+
+La existencia en tiempo real de una realimentación de la representación intangible, cuando se ha manipulado la representación tangible, es fundamental para asegurar un correcto acoplamiento perceptivo. Las representaciones intangibles que incorpora el diseño, son tanto auditivas, producidas en determinados puntos del desarrollo del juego, como gráficas, mostrando en determinadas zonas de la pantalla táctil, información no modificable por el usuario.
+Los componentes, y los eventos que se producen en la interacción, junto con las comunicaciones con TUIO2, están controladas mediante un microprocesador.
+
+El segundo elemento tangible TUIO2, actúa como elemento de programación tangible, agrupando funciones,
+características y elementos que pueden ser aplicados al juego, y que facilitan las interacciones o
+modificaciones a efectuar sobre el juego. Uno de los factores principales de las interfaces tangibles, es el acoplamiento de las representaciones tangibles a información digital y modelos computacionales. 
+
+Uno de los retos en el diseño de TUI, es como mapear los objetos físicos y como realizar una manipulación a la computación digital y la retroalimentación de una manera significativa y completa.
+Para solucionar el problema de disponer de distintos elementos tangibles para el desarrollo del juego, el dispositivo TUIO2 hace de puente entre la interfaz física y la digital, agrupando todos los elementos de interacción en un solo dispositivo. 
+
+Al disponer de una pantalla táctil se hace más intuitivo y sencillo el uso de este elemento tangible. Además de una pantalla táctil dispone de sensores de posicionamiento y orientación. Estos componentes y los eventos producidos son tratados en un microcontrolador, el cual también es el encargado de las comunicaciones con el dispositivo TUIO1.
+
+
 
 \section{Objetivo general}
 
-El hito final que se pretende lograr, destacando el problema específico que
-resuelve o la funcionalidad que aporta la aplicación o sistema desarrollado.
-
+Diseñar y desarrollar una plataforma interactiva de juego de bajo coste, basada en interfaces tangibles, para promover el desarrollo de capacidades en niños de corta edad.
 
 \section{Objetivos específicos}
 
-Los objetivos específicos son las partes independientes del proyecto que tienen
-valor por si mismas.
+\begin{itemize}
+\item Ofrecer una alternativa de juegos de interfaz tangible sobre los diseños actuales en el mercado, innovando en la forma de interacción.
 
-Por ejemplo, si el objetivo general fuera destruir una flota enemiga, los
-objetivos específicos podrían ser: hundir el portaaviones, inutilizar las
-torretas de los destructores, eliminar los cazas enemigos, etc.
+\item Innovar un sistema de comunicación HCI que permita al usuario tocar directamente la información
+con sus manos y manipular literalmente los datos.
 
-Los objetivos específicos no son tareas; análisis, diseño, etc. no tienen valor
-intrínseco para el cliente, si por ejemplo el proyecto se cancela en la fase de
-diseño no se le entrega nada de valor al cliente, luego no se cubre ningún
-objetivo.
+\item Diseñar un sistema de localización y reconocimiento del elemento tangible TUIO2, sobre el dispositivo TUIO1, mediante un patrón de coordenadas que detectará la pantalla capacitiva del mismo.
 
-No se deben confundir los objetivos del proyecto con los objetivos del
-alumno. Indicar como objetivo que el alumno va a aprender o a estudiar
-determinada disciplina o herramienta no aporta nada al cliente. Deben ser
-entregables que el cliente puede valorar y por los que estaría dispuesto
-a pagar. Resumiendo, son \textbf{objetivos}, no subjetivos.
+\item Diseñar y construir un prototipo fiable, de estructura robusta, de bajo costo, y con elementos perfectamente integrados entre sí, cumpliendo con las normas de diseño y seguridad para juguetes establecidas por la legislación y
+normativa vigente.
 
-\subsection{Objetivo 1}
+\item Elaborar un sistema de transferencia de datos entre ambas interfaces tangibles, que sea fluido, seguro, y con una alta velocidad de intercambio de datos, siguiendo los protocolos de comunicaciones inalámbricas IEEE 802.11.
 
-\subsection{Objetivo 2}
+\item Diseñar un software para la interacción entre ambos dispositivos, que tenga una estructura sólida, depurando y anticipando los posibles fallos que pueden surgir en el transcurso del desarrollo de la aplicación, además de una interfaz gráfica simple que permita que el niño sea capaz de diseñar secuencias y modificarlas interactuando con los elementos tangibles.
 
-\subsection{Objetivo 3}
+\item Realizar una correcta sincronicación en la visualización de la aplicación entre ambas pantallas, que permitan una correcta representación del juego.
+
+\item Adaptar un sensor inercial al dispositivo TUIO2 para desarrollar una mejor experiencia de juego en la pantalla del propio objeto, y que ademas permita la manipulación de elementos representados gráficamente en TUI01, diseñando un correcto sistema de adquisición y tratamiento de datos del sensor.
+
+\item Enfocar el juego a niños de todas las edades, complicando según el rango de edad, el juego en cada etapa, diseñando una aplicación con un entorno de fácil uso e intuitivo, y que ademas, fomente la capacidad de razonamiento, creación e imaginación de los niños.
+
+\item Diseñar un sistema de actualización de software de los dispositivos, a través de la conexión externa a un servidor.
+\end{itemize}
+
 
 
 % Local Variables:
