@@ -1,0 +1,91 @@
+# coord7.kv
+
+<Pantalla7inch>:
+
+
+    # Color de fondo para la aplicacion
+    canvas:
+        Color:
+            rgb: .7,.3,.7
+        Rectangle:
+            size: root.width,root.height
+            pos: 0,0
+
+    # Se crean tres circulos para mostrar donde se ha producido el toque
+        Color:
+            rgb: 0, 0, 1
+        Ellipse:
+            pos: (root.coordenadas_i[0][0]-10,root.coordenadas_i[0][1]-10)
+            size: 20,20
+        Color:
+            rgb: 0, 0, 1
+        Ellipse:
+            pos: (root.coordenadas_i[1][0]-10,root.coordenadas_i[1][1]-10)
+            size: 20,20
+        Color:
+            rgb: 0, 0, 1
+        Ellipse:
+            pos: (root.coordenadas_i[2][0]-10,root.coordenadas_i[2][1]-10)
+            size: 20,20
+
+    # Etiqueta para mostrar la identificacion del toque realizado
+    Label:
+        pos: root.coordenadas_i[0][0],root.coordenadas_i[0][1]
+        text: str(root.coordenadas_i[0][2])
+        font_size: 20
+        markup: True
+    Label:
+        pos: root.coordenadas_i[1][0],root.coordenadas_i[1][1]
+        text:str(root.coordenadas_i[1][2])
+        font_size: 20
+        markup: True
+    Label:
+        pos: root.coordenadas_i[2][0],root.coordenadas_i[2][1]
+        text:str(root.coordenadas_i[2][2])
+        font_size: 20
+        markup: True
+    
+    # Etiqueta para mostrar distancia entre los dos ultimos toques
+    Label:
+        text: str(root.medida)
+        font_size: 20
+        size_hint: [1.1,.7]
+        pos: 100,0
+
+    
+    # EtiquetaS para mostrar el area del triangulo que forman los tres toques
+    Label:
+        text: 'AREA:'
+        font_size: 20
+        size_hint: [1.1,.7]
+        pos: 0,350
+    Label:
+        text: str(root.area_tri)
+        font_size: 20
+        size_hint: [1.1,.7]
+        pos: 100,350
+    
+    # Boton para salir de la aplicacion
+    Button:
+        text: 'Salir'
+        font_size: 20
+        size_hint: [1.1,.7]
+        on_press: root.salir()
+        on_press: app.get_running_app().stop()
+        pos: 0,250
+
+    # Etiqueta con el nombre de la aplicacion
+    Label:
+        pos: 300,root.top-100
+        text:'Pruebas localizacion 1'
+        font_size: 40
+        markup: True
+
+    # Etiqueta que muestra el estado de conexion con el cliente
+    Label:
+        pos: 300,0
+        text: str(root.conect)
+        font_size: 20
+        markup: True
+
+    

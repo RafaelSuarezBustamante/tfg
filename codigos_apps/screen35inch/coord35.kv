@@ -1,0 +1,35 @@
+# coord35.kv
+
+ 
+<Coord35>:
+    # Color de fondo para la aplicacion
+    canvas:
+        Color:
+            rgb: .7,.3,.7
+        Rectangle:
+            size: root.width,root.height
+            pos: 0,0
+
+    #Etiqueta de titulo de la aplicacion
+    Label:
+        pos: 150,220
+        text:'Pruebas localizacion 1'
+        font_size: 20
+        markup: True
+
+    #Boton para salir de la aplicacion
+    Button:
+        id: stop_but
+        text: 'Salir'
+        font_size: 20
+        size_hint: [1.1,.7]
+        on_press: root.finalizar() 
+        on_press: app.get_running_app().stop()
+        pos: 0,200
+
+    #Etiqueta que muestra el estado de conexion de las comunicaciones
+    Label:
+        pos: 150,30
+        text: str(root.conect)
+        font_size: 20
+        markup: True
