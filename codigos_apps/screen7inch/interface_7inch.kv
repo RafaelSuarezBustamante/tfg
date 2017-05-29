@@ -1,6 +1,6 @@
-# coord7.kv
+#interface_7inch.kv
 
-<Pantalla7inch>:
+<Interface_7inch>:
 
 
     # Color de fondo para la aplicacion
@@ -15,56 +15,79 @@
         Color:
             rgb: 0, 0, 1
         Ellipse:
-            pos: (root.coordenadas_i[0][0]-10,root.coordenadas_i[0][1]-10)
+            pos: (root.coordenadas[0][0]-10,root.coordenadas[0][1]-10)
             size: 20,20
         Color:
             rgb: 0, 0, 1
         Ellipse:
-            pos: (root.coordenadas_i[1][0]-10,root.coordenadas_i[1][1]-10)
+            pos: (root.coordenadas[1][0]-10,root.coordenadas[1][1]-10)
             size: 20,20
         Color:
             rgb: 0, 0, 1
         Ellipse:
-            pos: (root.coordenadas_i[2][0]-10,root.coordenadas_i[2][1]-10)
+            pos: (root.coordenadas[2][0]-10,root.coordenadas[2][1]-10)
             size: 20,20
 
     # Etiqueta para mostrar la identificacion del toque realizado
     Label:
-        pos: root.coordenadas_i[0][0],root.coordenadas_i[0][1]
-        text: str(root.coordenadas_i[0][2])
+        pos: root.coordenadas[0][0],root.coordenadas[0][1]
+        text: str(root.coordenadas[0][2])
         font_size: 20
         markup: True
     Label:
-        pos: root.coordenadas_i[1][0],root.coordenadas_i[1][1]
-        text:str(root.coordenadas_i[1][2])
+        pos: root.coordenadas[1][0],root.coordenadas[1][1]
+        text:str(root.coordenadas[1][2])
         font_size: 20
         markup: True
     Label:
-        pos: root.coordenadas_i[2][0],root.coordenadas_i[2][1]
-        text:str(root.coordenadas_i[2][2])
+        pos: root.coordenadas[2][0],root.coordenadas[2][1]
+        text:str(root.coordenadas[2][2])
         font_size: 20
         markup: True
     
-    # Etiqueta para mostrar distancia entre los dos ultimos toques
-    Label:
-        text: str(root.medida)
-        font_size: 20
-        size_hint: [1.1,.7]
-        pos: 100,0
 
-    
-    # EtiquetaS para mostrar el area del triangulo que forman los tres toques
+    ## Datos IMU MPU9250
+
+    #Datos acelerometro
     Label:
-        text: 'AREA:'
+        pos: 300,115
+        text: 'Datos acelerometro'
         font_size: 20
-        size_hint: [1.1,.7]
-        pos: 0,350
+        markup: True
     Label:
-        text: str(root.area_tri)
+        pos: 300,95
+        text: str(root.mpu9250_datos[1])
         font_size: 20
-        size_hint: [1.1,.7]
-        pos: 100,350
-    
+        markup: True
+
+    #Datos giroscopio
+    Label:
+        pos: 300,160
+        text: 'Datos giroscopio'
+        font_size: 20
+        markup: True
+
+    Label:
+        pos: 300,140
+        text: str(root.mpu9250_datos[2])
+        font_size: 20
+        markup: True
+
+    #Datos Magnetometro
+    Label:
+        pos: 300,200
+        text: 'Datos magnetometro'
+        font_size: 20
+        markup: True
+
+    Label:
+        pos: 300,180
+        text: str(root.mpu9250_datos[3])
+        font_size: 20
+        markup: True
+
+
+
     # Boton para salir de la aplicacion
     Button:
         text: 'Salir'
@@ -77,13 +100,14 @@
     # Etiqueta con el nombre de la aplicacion
     Label:
         pos: 300,root.top-100
-        text:'Pruebas localizacion 1'
+        text:'Pruebas localizacion 2'
         font_size: 40
         markup: True
 
     # Etiqueta que muestra el estado de conexion con el cliente
     Label:
-        pos: 300,0
+        pos: 150,20
+        #text: 'conect'
         text: str(root.conect)
         font_size: 20
         markup: True

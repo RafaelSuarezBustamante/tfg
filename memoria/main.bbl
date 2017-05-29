@@ -17,7 +17,7 @@ H.~Ishii.
 \bibitem{Papert}
 S.~Papert.
 \newblock {\em Mindstorms: children, computers, and powerful ideas}.
-\newblock Basic Books, 2 edition, 1999.
+\newblock Basic Books, second edition, 1999.
 
 \bibitem{Perlman}
 R.~Perlman.
@@ -141,7 +141,7 @@ S.~Grover.
 \bibitem{Piaget}
 J.~Piaget.
 \newblock {\em The language and thought of the child}.
-\newblock Humanities Press, 3 edition, 1959.
+\newblock Humanities Press, third edition, 1959.
 
 \bibitem{Resnick}
 M.~Resnick, F.~Martin, R.~Berg, R.~Borovoy, V.~Colella, and K.~Kramer.
@@ -308,5 +308,10 @@ L.~Zahner, U.~Pühse, C.~Stüssi, J.~Schmid, and Dössegger A.
 \newblock {\em Aktive Kindheit – gesund durchs Leben. Handbuch für
   Fachpersonen}.
 \newblock Magglingen: BASPO, first edition, 2004.
+
+\bibitem{Kivy}
+D.~Phillips.
+\newblock {\em Creating Apps in Kivy}.
+\newblock Oreilly, first edition, 2014.
 
 \end{thebibliography}

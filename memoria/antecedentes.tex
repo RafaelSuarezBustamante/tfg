@@ -323,6 +323,92 @@ Para ejecutar uno de los juegos, los niños deben superar un laberinto donde con
 \end{figure}
 
 
+\section{Áreas de mejora en sistemas tangibles.}
+Los diferentes sistemas de interacción tangible tienen como propósito general, que la
+información sea comprensible y literalmente captable, haciendo uso de objetos físicos
+que sean manipulables de una forma natural.\\
+Otra de las características de la aplicación de los sistemas tangibles en el ámbito
+educativo, es que el entorno visual debe motivar fuertemente al usuario, disponiendo
+de un entorno de fácil uso e intuitivo, y que, además, fomente la capacidad de
+razonamiento, creación e imaginación de los niños.\\
+La evolución de la tecnología aplicada a los modelos actuales de sistemas tangibles, van
+adaptándose para mejorar los diseños y conseguir de esta forma sistemas más fiables.
+No obstante, existen diferentes áreas de mejora localizadas sobre los diferentes
+sistemas de interacción tangible:
+\begin{itemize}
+\item Uso de elementos externos para su funcionamiento: en algunos juegos, es
+imprescindible es uso de un ordenador para su normal funcionamiento (como es
+el caso de Scratch \& WeDo), además del uso de periféricos, por ejemplo, el uso
+de una cámara para el reconocimiento de imágenes.
+\item Elevado número de elementos tangibles para el desarrollo del juego: si bien es
+cierto, que uno de los puntos más importantes a la hora de la programación para
+niños, es poder representar partes de código de diferentes elementos tangibles,
+un gran número de elementos puede suponer un problema para el niño a la hora
+del desarrollo del juego, pudiendo en algunos casos confundirlo.
+\item Enfoque exclusivo de un rango de edades para el juego: en la mayoría de los
+casos, los juegos están enfocados a niños de un determinado rango de edades,
+limitando de esta manera el juego, ya que puede resultar de una dificultad
+elevada para niños de corta edad, o demasiado fáciles para el resto de edades.
+\item Diseño estático del juego: una de las limitaciones de todos los juegos que hacen
+uso de interfaces tangibles, es que no pueden ser actualizados, o no disponen de
+actualizaciones de software, lo que hace que el juego no evolucione, e
+imposibilita posibles futuras mejoras en los juegos.
+\item Alto coste de los bloques o dispositivos de realimentación: el uso de un gran
+número de elementos utilizados para la interacción tangible, eleva el precio del
+diseño.
+\end{itemize}
+
+\section{Software para el desarrollo.}
+\subsection{Python.}
+
+\subsection{Kivy.}
+Kivy es una biblioteca de Python de código abierto y multiplataforma, la cual ofrece un conjunto de herramientas para el desarrollo de interfaces gráficas de usuario en aplicaciones multitouch.
+Kivy está escrito en Python y Cython, basado en OpenGL ES 2, soporta varios dispositivos de entrada y tiene una extensa biblioteca de widgets. Con la misma base de código puede orientarse a Windows, OS X, Linux, Android e iOS. Todos los widgets de Kivy están construidos con soporte multitáctil~\cite{Kivy}. 
+
+\textbf{Lenguaje Kv.}\\
+A medida que una aplicación se vuelve más compleja, el lenguaje Kv (Kivy) permite crear Widgets de forma declarativa y vincular las propiedades de los Widgets entre sí. Permite realizar cambios agiles en la interfaz de usuario. Facilita una buena separación entre la lógica de la aplicación y la interfaz de usuario.
+
+\textbf{Cargar Kv.}\\
+Existen dos maneras de cargar código Kv en una aplicación:
+\begin{itemize}
+\item Mediante convenio de nombre:
+Kivy busca un archivo Kv con el mismo nombre que la clase App (en minúsculas). Este archivo define un Widget raíz que se conectará al atributo raíz de la aplicación y se utilizará como base del árbol de Widgets de la aplicación.
+\item Constructor: Se puede indicar a Kivy que cargue directamente una cadena o un archivo. Si esta cadena o archivo define un Widget raíz, será devuelto por el método:\\
+\texttt{Builder.load\_file('path/to/file.kv')}.\\
+\end{itemize}
+
+\textbf{Normas de contexto.}\\
+Una fuente Kv constituye una regla que se utiliza para describir el contenido de un Widget. Puede tener una regla raíz y cualquier numero de reglas de clase o plantilla.
+La regla raíz se declara en la clase del Widget raíz, sin ninguna sangría, seguida de : y se establecerá como el atributo raíz de la instancia de la aplicación:\\
+\texttt{Widget:}\\
+Una regla de clase que es declarada por el nombre de la clase de Widget entre <> y seguida por :, define como se representará de manera gráfica cualquier instancia de esa clase:\\
+\texttt{<MyWidget>:}\\
+Las reglas, al igual que en «Python», utilizan sangrías de cuatro espacios por nivel para la delimitación.\\
+Existen tres palabras clave específicas del lenguaje Kv:
+\begin{itemize}
+\item App: siempre está referida a la instancia de la aplicación.
+\item Root: hace referencia al widget base en la regla actual.
+\item Self: siempre se refiere al widget actual.
+\end{itemize}
+
+\textbf{Sintaxis especiales.}\\
+Existen dos sintaxis de carácter especial, que sirven apra definir valores en el contexto Kv.\\
+\texttt{\#:import name xyz\\
+\#:import isdir os.path.isdir\\
+\#:import np numpy}\\
+es equivalente a:\\
+\texttt{from xy import z as name\\
+from os.path import isdir\\
+import numpy as np}\\
+en «Python».
+
+Para establecer valores globales:\\
+\texttt{\#:set name value}\\
+Equivale a:\\
+\texttt{name = value }\\
+en «Python».\\
+
+
 
 
 

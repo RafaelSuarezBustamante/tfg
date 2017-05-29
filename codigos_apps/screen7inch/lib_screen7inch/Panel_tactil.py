@@ -3,22 +3,21 @@ import time
 import math
 import threading
 import errno
-from libcoord7 import Comunicaciones7
+from lib_screen7inch import Comunicaciones_servidor
+
+
 
 class Localizacion(object):
 	def __init__(self, **kwargs):
 		super(Localizacion, self).__init__(**kwargs)
-		print('Inicio Localizacion')
 		self.puls = []                                      #Lista de coordenadas xy de toques
 		self.m = 0 											#Distancia entre los dos ultimos puntos
 		self.dist = [(0,'NADA')]							#Listado de distancias entre puntos
 		self.coordenadas = [(0,0,0),(0,0,0),(0,0,0)]   #Lista de coordenadas posicion pantalla 3,5"
 		self.area = 0										#Area del triangulo formado por las coordenadas		
 		self.contador = 0
-		self.com = Comunicaciones7.Comunicaciones7()
-		self.datos_eviados = False
-		print('Localizacion creada')
-
+		#self.values = (0, 0, 0, 0, 1, 0)
+		self.comunicaciones = Comunicaciones_servidor.Comunicaciones7()
 	def pulsacion(self,t):
 		if (len(self.puls)) < 6 :
 			self.puls.append((t.x,t.y,t.id))  #Almacenar las coordenadas del toque
@@ -89,10 +88,10 @@ class Localizacion(object):
 			self.coordenadas_init = self.coordenadas[:] #Copia para enviar a la pantalla y mostrar puntos de contacto
 			angulo = self.calculo_angulo(self.coordenadas)
 			print('Area correcta')
-			values = (self.coordenadas[0][0], self.coordenadas[0][1], angulo, 1, 0)
+			values = (0, self.coordenadas[0][0], self.coordenadas[0][1], angulo, 1, 0)
 			print('values')
 			print(values)
-			self.com.mandar_datos(values)
+			self.enviar_datos(values)
 
 		else:
 			print('Area erronea')
@@ -103,6 +102,7 @@ class Localizacion(object):
 
 		for a in range(2):
 			for b in range(2):
+				print('distanciasss',self.dist)
 				if self.dist[1][a+2][2] == self.dist[2][b+2][2]:
 					#punto en comun
 					self.coordenadas[c] = (self.dist[1][a+2][0],self.dist[1][a+2][1],p)
@@ -130,6 +130,10 @@ class Localizacion(object):
 		print(c)
 		angulo = (math.atan((c[1][1]-c[0][1])/(c[1][0]-c[0][0])+0.0001))*180/math.pi
 		return angulo
+
+
+	def enviar_datos(self,values):
+		self.comunicaciones.mandar_datos(values)
 
 	def inicializar_a_0(self):
 		self.dist = [(0,'NADA')] #Inicializar lista de distancias	

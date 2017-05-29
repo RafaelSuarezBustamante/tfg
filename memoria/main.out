@@ -23,12 +23,17 @@
 \BOOKMARK [1][-]{section.4.1}{Estudios experimentales sobre Intereacci\363n Tangible}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.2}{Interacci\363n tangible en la ense\361anza de programaci\363n}{chapter.4}% 24
 \BOOKMARK [1][-]{section.4.3}{Aplicaciones de sistemas multipantalla}{chapter.4}% 25
-\BOOKMARK [0][-]{chapter.5}{M\351todo de trabajo}{}% 26
-\BOOKMARK [1][-]{section.5.1}{Metodolog\355a Agile}{chapter.5}% 27
-\BOOKMARK [1][-]{section.5.2}{Scrum como metodolog\355a de trabajo}{chapter.5}% 28
-\BOOKMARK [2][-]{subsection.5.2.1}{Roles}{section.5.2}% 29
-\BOOKMARK [2][-]{subsection.5.2.2}{Artefactos}{section.5.2}% 30
-\BOOKMARK [2][-]{subsection.5.2.3}{Motivos de la elecci\363n del m\351todo Scrum}{section.5.2}% 31
-\BOOKMARK [1][-]{section.5.3}{Aplicaci\363n del m\351todo de trabajo}{chapter.5}% 32
-\BOOKMARK [0][-]{appendix.Alph1}{Ejemplo de anexo}{}% 33
-\BOOKMARK [0][-]{appendix*.9}{Referencias}{}% 34
+\BOOKMARK [1][-]{section.4.4}{\301reas de mejora en sistemas tangibles.}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{Software para el desarrollo.}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.5.1}{Python.}{section.4.5}% 28
+\BOOKMARK [2][-]{subsection.4.5.2}{Kivy.}{section.4.5}% 29
+\BOOKMARK [0][-]{chapter.5}{M\351todo de trabajo}{}% 30
+\BOOKMARK [1][-]{section.5.1}{Metodolog\355a Agile}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.2}{Scrum como metodolog\355a de trabajo}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.2.1}{Roles}{section.5.2}% 33
+\BOOKMARK [2][-]{subsection.5.2.2}{Artefactos}{section.5.2}% 34
+\BOOKMARK [2][-]{subsection.5.2.3}{Motivos de la elecci\363n del m\351todo Scrum}{section.5.2}% 35
+\BOOKMARK [1][-]{section.5.3}{Aplicaci\363n del m\351todo de trabajo}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.3.1}{Iteraci\363n : Sistema de localizaci\363n del Widget tangible sobre la pantalla t\341ctil}{section.5.3}% 37
+\BOOKMARK [0][-]{appendix.Alph1}{Ejemplo de anexo}{}% 38
+\BOOKMARK [0][-]{appendix*.9}{Referencias}{}% 39

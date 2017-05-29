@@ -1,7 +1,7 @@
-# coord35.kv
+# interface_3inch.kv
 
  
-<Coord35>:
+<Interface_3inch>:
     # Color de fondo para la aplicacion
     canvas:
         Color:
@@ -26,6 +26,14 @@
         on_press: root.finalizar() 
         on_press: app.get_running_app().stop()
         pos: 0,200
+
+    #Boton para salir de la aplicacion
+    Button:
+        text: 'Activar IMU'
+        font_size: 20
+        size_hint: [1.1,.7]
+        on_press: root.mpu9250.mpu9250_activar = True
+        pos: 0,100
 
     #Etiqueta que muestra el estado de conexion de las comunicaciones
     Label:

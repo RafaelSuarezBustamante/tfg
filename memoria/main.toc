@@ -24,12 +24,19 @@
 \contentsline {section}{\numberline {4.1}Estudios experimentales sobre Intereacci\IeC {\'o}n Tangible}{13}{section.4.1}
 \contentsline {section}{\numberline {4.2}Interacci\IeC {\'o}n tangible en la ense\IeC {\~n}anza de programaci\IeC {\'o}n}{18}{section.4.2}
 \contentsline {section}{\numberline {4.3}Aplicaciones de sistemas multipantalla}{26}{section.4.3}
-\contentsline {chapter}{\numberline {5}M\IeC {\'e}todo de trabajo}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Metodolog\IeC {\'\i }a Agile}{32}{section.5.1}
-\contentsline {section}{\numberline {5.2}Scrum como metodolog\IeC {\'\i }a de trabajo}{32}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Roles}{32}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Artefactos}{32}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Motivos de la elecci\IeC {\'o}n del m\IeC {\'e}todo Scrum}{32}{subsection.5.2.3}
-\contentsline {section}{\numberline {5.3}Aplicaci\IeC {\'o}n del m\IeC {\'e}todo de trabajo}{32}{section.5.3}
-\contentsline {chapter}{\numberline {A}Ejemplo de anexo}{35}{appendix.Alph1}
-\contentsline {chapter}{Referencias}{37}{appendix*.9}
+\contentsline {section}{\numberline {4.4}\IeC {\'A}reas de mejora en sistemas tangibles.}{30}{section.4.4}
+\contentsline {section}{\numberline {4.5}Software para el desarrollo.}{31}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Python.}{31}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Kivy.}{31}{subsection.4.5.2}
+\contentsline {chapter}{\numberline {5}M\IeC {\'e}todo de trabajo}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Metodolog\IeC {\'\i }a Agile}{34}{section.5.1}
+\contentsline {section}{\numberline {5.2}Scrum como metodolog\IeC {\'\i }a de trabajo}{34}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Roles}{34}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Artefactos}{34}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Motivos de la elecci\IeC {\'o}n del m\IeC {\'e}todo Scrum}{34}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Aplicaci\IeC {\'o}n del m\IeC {\'e}todo de trabajo}{34}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Iteraci\IeC {\'o}n : Sistema de localizaci\IeC {\'o}n del Widget tangible sobre la pantalla t\IeC {\'a}ctil}{34}{subsection.5.3.1}
+\contentsline {subsubsection}{Localizaci\IeC {\'o}n del Widget tangible TUIO2}{34}{figure.5.2}
+\contentsline {subsubsection}{Programa para la localizaci\IeC {\'o}n.}{36}{figure.5.4}
+\contentsline {chapter}{\numberline {A}Ejemplo de anexo}{43}{appendix.Alph1}
+\contentsline {chapter}{Referencias}{45}{appendix*.9}
