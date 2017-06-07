@@ -10,21 +10,27 @@ class Comunicaciones7(object):
 		print('Comunicaciones mandar datos')
 		super(Comunicaciones7, self).__init__(**kwargs)
 		''' Inicializacion canal envio de datos'''
+		
+		print('iniciar comunicaciones')
 		self.host = '0.0.0.0'
-		self.port = 8893
+		self.port = 8899
 		self.sock= socket(AF_INET, SOCK_STREAM)
 		self.sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-		self.sock.bind((self.host, self.port))
-		self.sock.listen(10)
 		self.finalizar_cliente = False
 		self.conectar = False
 		self.conexion_con_cliente = False
 		self.packer = struct.Struct('i f f f ? ?')
 		self.datos = [0,0,0,0]
-		self.t0 = threading.Thread(target=self.recibir_datos)
-		self.t0.start()
 
-	
+	def iniciar_socket(self):
+		try:
+			self.sock.bind((self.host, self.port))
+			self.sock.listen(10)
+			t0 = threading.Thread(target=self.recibir_datos)
+			t0.start()
+		except: 
+			print('error,ya conectado')
+
 	def mandar_datos(self,values):
 
 		if self.conexion_con_cliente == True:
@@ -93,6 +99,7 @@ class Comunicaciones7(object):
 	# para finalizar la espera de un cliente por parte del servidor y 
 	# finalmente se cierra el servidor
 	def finalizar_conexion(self):
+		print('finalizar conexion')
 		if self.conexion_con_cliente == True:
 			values = (0, 0.0, 0.0, 0.0 , 0, 1)
 			self.mandar_datos(values)

@@ -12,8 +12,8 @@ from kivy.properties import ListProperty
 from kivy.properties import StringProperty
 from kivy.app import App
 import threading
-from lib_screen7inch import Panel_tactil
-from lib_screen7inch import Interface_datos7inch
+from lib import Panel_tactil
+from lib import Interface_datos7inch
 import time
 
  

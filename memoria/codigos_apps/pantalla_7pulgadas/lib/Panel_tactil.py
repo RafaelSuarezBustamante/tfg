@@ -1,9 +1,10 @@
+
 from kivy.vector import Vector
 import time
 import math
 import threading
 import errno
-from lib_screen7inch import Comunicaciones_servidor
+from lib import Comunicaciones_servidor
 
 
 
@@ -18,6 +19,7 @@ class Localizacion(object):
 		self.contador = 0
 		#self.values = (0, 0, 0, 0, 1, 0)
 		self.comunicaciones = Comunicaciones_servidor.Comunicaciones7()
+		self.comunicaciones.iniciar_socket()
 	def pulsacion(self,t):
 		if (len(self.puls)) < 6 :
 			self.puls.append((t.x,t.y,t.id))  #Almacenar las coordenadas del toque

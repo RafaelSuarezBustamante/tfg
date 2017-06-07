@@ -1,0 +1,179 @@
+#:import Factory kivy.factory.Factory
+
+<Boton@Button>:
+    text:''
+    #background_color: (.5,0.5 ,0.5,1) #if self.state =='normal' else (1,0,0,1) 
+    #background_normal: ''
+    #background_disabled_normal:''
+    size_hint: [.15,.15]
+
+<Boton_menu@Button>:
+    #background_color: (1,1 ,0.5,1) if self.state =='normal' else (1,0,0,1) 
+    #background_normal: ''
+    #background_disabled_normal:''
+    #background_down: ''
+    size_hint: None, None
+    size: 150, 80
+
+
+
+Menu:
+    name: "PantallaJuego1"
+    fullscreen: True
+    canvas.before:
+        Rectangle:
+            size: self.size
+            source: 'data/fondos/fondo_amarillo.jpg'
+                
+    Matriz_juego:
+
+
+
+<Cuadrado>:
+    size: 70,70
+    canvas.before:
+        Color:
+            rgb: .75, 0, 0
+        Rectangle:
+            pos: self.pos
+            size: 70,70
+
+<Ball>:
+    size: 40,40
+    canvas.before:
+        Color:
+            rgb: .75, 0, 0
+        Ellipse:
+            pos: self.pos
+            size: 40,40
+
+<Matriz_juego>:
+
+    ball: ball_id
+    id: line_id
+    #label_widget: label_widget
+
+    canvas.after:
+        Color:
+            rgb: 0,0,0
+        Line:
+            points: root.puntos_trayectoria
+            width: 3    
+    
+    FloatLayout:
+
+        Button:
+            id: button_comenzar
+            pos: 250,320
+            size_hint: None, None
+            size: '130dp', '78dp'
+            background_normal: 'data/icons/boton_comenzar_juego1.png'
+            disabled: True
+            on_release: root.comienzo_juego()
+              
+        Button:
+            pos: 620,320
+            size_hint: None, None
+            size: '130dp', '78dp'
+            background_normal: 'data/icons/boton_nuevo_juego1.png'
+            on_press: root.inicio(0,0,0)
+
+        Button:
+            pos: 440,320
+            size_hint: None, None
+            size: '130dp', '48dp'
+            text: 'PAUSA'
+            on_press: root.pausar_juego()
+
+        Label:
+            pos: 80,290
+            text:'Juego 1'
+            font_size:45
+            markup: True
+       
+
+##MATRIZ DE BOTONES
+
+    GridLayout:
+        cols: 4
+        spacing: 20
+        padding: [20,10]
+        size: 800,330
+        #orientation: 'lr-tb'
+        
+
+#FILA 1
+        Boton:
+            id: button_0
+            on_press: root.inicio(button_0,0,0)
+
+        Boton:
+            id: button_1
+            on_press: root.inicio(button_1,0,1)
+
+        Boton:
+            id: button_2
+            on_press: root.inicio(button_2,0,2)
+
+        Boton:
+            id: button_3
+            on_press: root.inicio(button_3,0,3)
+
+#FILA 2
+        Boton:
+            id: button_4
+            on_press: root.inicio(button_4,1,0)
+
+        Boton:
+            id: button_5
+            on_press: root.inicio(button_5,1,1)
+
+        Boton:
+            id: button_6
+            on_press: root.inicio(button_6,1,2)
+    
+
+        Boton:
+            id: button_7
+            on_press: root.inicio(button_7,1,3)
+#FILA 3
+        Boton:
+            id: button_8
+            on_press: root.inicio(button_8,2,0)
+
+        Boton:
+            id: button_9
+            on_press: root.inicio(button_9,2,1)
+
+        Boton:
+            id: button_10
+            on_press: root.inicio(button_10,2,2)
+    
+
+        Boton:
+            id: button_11
+            on_press: root.inicio(button_11,2,3)
+#FILA 4
+        Boton:
+            id: button_12
+            on_press: root.inicio(button_12,3,0)
+
+        Boton:
+            id: button_13
+            on_press: root.inicio(button_13,3,1)
+
+        Boton:
+            id: button_14
+            on_press: root.inicio(button_14,3,2)
+    
+
+        Boton:
+            id: button_15
+            on_press: root.inicio(button_15,3,3)
+            #on_press: root.inicio(0,0,0)
+
+    Ball:
+        id: ball_id
+    #Cuadrado:
+    #    id: cuadrado_id
+

@@ -1,0 +1,32 @@
+#:import Factory kivy.factory.Factory
+Menu:
+    name: "PantallaJuegos"
+    canvas.before:
+		Rectangle:
+			size: self.size
+			source: 'data/fondos/fondo_juegos.jpg'
+                
+
+	ScreenManager:
+        id: sm
+
+    FloatLayout:
+	    Button:
+	    	pos: 200,150
+	        size_hint: None, None
+	        size: '370dp', '200dp'
+	        #text: 'JUEGO1'
+	        background_normal: 'data/icons/boton_juego1.png'
+	        on_release:
+	        	if sm.current != 'PantallaJuego1':\
+	        	idx = app.screen_names.index('PantallaJuego1');\
+	        	app.go_screen(idx)
+
+    FloatLayout:
+        Button:
+        	pos: 30,40
+            size_hint: None, None
+            size: '150dp', '48dp'
+            text: 'Go to screen 1'
+            background_normal: 'data/icons/juego2.png'
+            on_release: sm.current = 'screen1'

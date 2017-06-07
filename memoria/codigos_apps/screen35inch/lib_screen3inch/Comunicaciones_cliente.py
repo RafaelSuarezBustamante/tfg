@@ -13,8 +13,8 @@ class Comunicaciones3(object):
 		print('Comunicaciones mandar datos')
 		super(Comunicaciones3, self).__init__(**kwargs)
 		#Parametros de inicializacion del socket
-		self.host = '192.168.0.156' #host del servidor
-		self.port = 8893		    #puerto de escucha del servidor
+		self.host = '192.168.0.160' #host del servidor
+		self.port = 8897		    #puerto de escucha del servidor
 		self.s = socket(AF_INET, SOCK_STREAM)
 		
 		#Atributo dedicado a indicar el estado de la conexion:
