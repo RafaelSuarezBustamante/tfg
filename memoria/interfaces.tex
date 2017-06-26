@@ -74,7 +74,6 @@ Aunque la representación tangible permite que la realización física se acople
 El éxito de una TUI a menudo se basa en un equilibrio y fuerte acoplamiento perceptual entre las
 representaciones tangibles e intangibles. Tanto las representaciones tangibles e intangibles se acoplan perceptualmente para lograr una interfaz transparente que media activamente la interacción con la información digital y borre, de manera apropiada, el límite entre lo físico y lo digital. La coincidencia de entrada y salida junto con una respuesta en tiempo real, son requisitos importantes para lograr este objetivo.
 
-
 \subsection{Uso de TUI en la educación}
 
 Los sistemas tangibles se están convirtiendo en una alternativa a la interfaz gráfica de usuario. Diferentes marcos de diseño se han aplicado al desarrollo de estos sistemas, abriendo la puerta a nuevas formas de relacionarse con el aprendizaje \cite{Marshall}.
@@ -86,9 +85,6 @@ En el área del calculo y sus conceptos abstractos (en los primeros años de edu
 Este hecho pone de manifiesto, que los niños pequeños pueden llegan a reconocer ciertas cosas sin ser capaces de expresare a través del lenguaje, o sin ser capaces de reflexionar sobre lo que pueden llegar a conocer en un sentido explícito \cite{Malley}.
 
 
-
-
-
 \section{Interfaces Sistema Multi-Pantalla}
 Un sistema multi-pantalla o multi-monitor, consiste en combinar varios dispositivos de visualización con el fin de aumentar el espacio visual disponible para ejecutar una o varias tareas.
 Inicialmente este tipo de interfaz, fue diseñada con el propósito de mostrar la misma imagen en los distintos dispositivos conectados. Este tipo de uso era aplicado principalmente en las presentaciones, donde el usuario podría disponer de un duplicado de la imagen proyectada.
@@ -98,6 +94,33 @@ De manera posterior, los fabricantes aprovecharon esta tecnología para ampliar 
 Son muy distintos los ámbitos de aplicación de esta tecnología, pudiéndose incorporar en los sistemas de control en la industria, sistemas de video-vigilancia, fabricación de juegos, etc.
 El uso de varias pantallas en la industria de los videojuegos fue introducida por Nintendo en 1980 con su serie de consolas portátiles "Game and Watch".
 
+
+\section{Pantallas capacitivas.}
+La gran mayoría de los dispositivos comercialmente disponibles actualmente y que hacen uso de una pantalla, usan la tecnología de contacto capacitivo.
+Las pantallas capacitivas multitáctiles no han sido diseñadas para detectar objetos pasivos al ser situados sobre ellas, estas pantallas incluso disponen de filtros para rechazar de manera activa ese tipo de eventos táctiles.
+Los widgets tangibles en tales pantallas táctiles capacitivas, se han empezado a explorar relativamente hace poco más de una década [Rekimoto, J. SmartSkin: An Infrastructure for Freehand Manipulation on Interactive Surfaces. In Proc. CHI ’02, ACM (2002), 113–120], pero necesitan generalmente del cuerpo del usuario para proporcionar la capacitancia necesaria para la detección del tacto. La gran limitación es que, para mantener la detección, el usuario tiene que seguir tocando la superficie conductora del widget.
+
+Las pantallas táctiles capacitivas, detectan la presencia de un conductor eléctrico conectado a tierra, por lo general un dedo humano, cerca de la superficie de la pantalla que es detectado mediante el uso de electrodos transparentes situados encima de la misma.
+Principalmente existen dos técnicas de detección: auto capacitancia y capacitancia mutua [Barrett, G., and Omote, R. Projected-Capacitive Touch Technology. Information Display 26, 3 (2010), 16–21.]. La capacitancia mutua es el método más comúnmente utilizado en pantallas de tipo multitáctil.
+La configuración en la que se disponen los electrodos en una pantalla de capacitancia mutua consiste en un conjunto de filas y otro conjunto de columnas. Uno de los conjuntos actúa como transmisores (Tx) y el otro conjunto como receptores (Rx) [Rekimoto].
+
+Al aplicar una señal a uno de los electrodos Tx, la capacitancia entre ese electrodo Tx y otro electrodo Rx (que está entrecruzado) acopla la señal al electrodo Rx [Silicon Labs. How to Minimize Touchscreen Electromagnetic Interference. Tech. rep., 2011.]. La señal de cada uno de los electrodos Rx es medida y mediante un controlador táctil es determinada la capacitancia entre el electrodo Tx activo y cada uno de los electrodos Rx. Al ser activado un electrodo Tx de manera simultánea (multiplexación en el tiempo), el controlador táctil es capaz de medir esta capacitancia en cada una de las intersecciones de los electrodos Tx - Rx en la pantalla.
+Cuando un conductor conectado a tierra como es el caso de un dedo, se aproxima a una de estas intersecciones entre electrodos Tx-Rx, la capacitancia entre ambos electrodos se ve reducida cuando el campo eléctrico entre ellos es perturbado por el conductor [Zimmerman, T. G., Smith, J. R., Paradiso, J. A., Allport, D., and Gershenfeld, N. Applying electric field sensing to human-computer interfaces. In Proc. CHI ’95, ACM (1995), 280–287.]
+
+El paso típico de un electrodo es de 5mm, al realizar un toque sobre la pantalla se verán afectadas mas de una intersección. El controlador táctil mediante interpolación es capaz de determinar el centro del área tocada e informa de ello con un evento táctil.
+
+La mayor parte de los controladores están diseñados para detectar toques con los dedos, aceptando formas elípticas del tamaño de la yema del dedo y rechazando e ignorando eventos táctiles con otras formas y tamaños que pueden reportar eventos táctiles impredecibles.
+
+Resumiendo, para que el controlador informe de un evento táctil, la capacitancia del electrodo Tx-Rx ha de ser reducida por debajo de cierto umbral y ha de suceder a lo largo una elíptica que forma la yema de un dedo.
+
+
+\subsection{Funcionamiento de un «widget capacitivo».}
+
+Se define «widget capacitivo» como un objeto tangible completo que contiene uno o más marcadores en su parte inferior y que comunican su posición a la superficie táctil de la pantalla capacitiva. Cada marcador consiste en una almohadilla redonda conductiva que es detectada por la superficie de la pantalla.
+
+Un marcador de widget para poder ser detectado como evento táctil sobre la superficie de la pantalla capacitiva tiene que cumplir el requisito de conexión a tierra. Esto se puede conseguir mediante la capacitancia corporal de un usuario como propone Rekimoto[]. Esto requiere que el usuario toque el widget y que las almohadillas del mismo sean conductivas, además de estar conectadas eléctricamente a la parte del widget que es tocada por el usuario. De esta forma el widget funciona simplemente como conductor eléctrico entre usuario y superficie táctil. Este enfoque tiene el inconveniente de tan pronto como el usuario deja de tener contacto, el controlador de la pantalla no puede detectar ninguna variación de capacitancia.
+
+Otro enfoque que permite reemplazar al usuario como tierra eléctrica, es el uso de un cable conductor que conecta permanentemente el widget a un objeto relativamente conectado a tierra, como es el conector negativo de una batería.
 % Local Variables:
 %  coding: utf-8
 %  mode: latex

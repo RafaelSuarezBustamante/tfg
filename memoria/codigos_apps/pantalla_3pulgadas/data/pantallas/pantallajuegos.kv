@@ -1,0 +1,46 @@
+#:import Factory kivy.factory.Factory
+Itanium:
+    name: "PantallaJuegos"
+    canvas.before:
+		Rectangle:
+			size: self.size
+			source: 'data/fondos/fondo_juegos.jpg'
+                
+
+	ScreenManager:
+        id: sm
+
+    FloatLayout:
+	    Button:
+	    	pos: 240,350
+	        size_hint: None, None
+	        size: '270dp', '130dp'
+	        #text: 'JUEGO1'
+	        background_normal: 'data/icons/boton_juego1.png'
+	        on_release:
+	        	if sm.current != 'PantallaJuego1':\
+	        	idx = app.screen_names.index('PantallaJuego1');\
+	        	#sm.get_screen('PantallaJuego1').ids.matriz.inicio(0,0,0);\
+	        	app.go_screen(idx)
+
+	FloatLayout:
+    	Button:
+    		pos: 240,250
+        	size_hint: None, None
+            size: '270dp', '130dp'
+            background_normal: 'data/icons/boton_juego2.png'
+            on_release:
+            	if sm.current != 'PantallaJuego2':\
+            	idx = app.screen_names.index('PantallaJuego2');\
+            	app.go_screen(idx)
+
+    FloatLayout:
+    	Button:
+    		pos: 240,150
+        	size_hint: None, None
+            size: '270dp', '130dp'
+            background_normal: 'data/icons/boton_juego3.png'
+            on_release:
+            	if sm.current != 'PantallaJuego3':\
+            	idx = app.screen_names.index('PantallaJuego3');\
+            	app.go_screen(idx)

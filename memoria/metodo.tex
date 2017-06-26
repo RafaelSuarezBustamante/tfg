@@ -39,8 +39,108 @@ Por lo tanto, basándose en estas ideas, y teniendo en cuenta el número de pers
 
 \section{Aplicación del método de trabajo}
 
+
+
+\subsection{Iteración 1 : Inicio del TFG }
+En esta primera iteración el objetivo es conocer el alcance del proyecto, entendiendo que hay que construir, realizando un estudio los actuales sistemas tangibles enfocados a la programación tangible para niños, y que tecnología y características utilizan cada uno de ellos, para poder identificar cuales son los puntos que se pueden mejorar en esos sistemas y contribuir a mejoralos, diseñando una plataforma de juego que resuelva todos esos puntos. Este analisis premitira establecer que requisitos debe tener la plataforma a diseñar, y que tecnologias utilizar en ella, para posteriormente establecer los pasos a realizar para alcanzar una serie de objetivos especificos dentro de la aplicación.
+
+En el «Capítulo Antecedentes» de este documento, se muestran los resultados sobre los principales estudios experimentales aplicados a la interacción tangible y como motiva a niños de tempranas edades en sus habilidades computacionales. Se muestran algunos de los dispositivos mas importantes y que aportan diferentes enfoques en la interacción tangible y que han sido utilizados para el aprendizaje computacional, así como sus características y tecnología utilizada.
+
+Finalmente se exponen las areas en los actuales sistemas tangibles.
+
+\subsection{Áreas de mejora en sistemas tangibles.}
+Los diferentes sistemas de interacción tangible tienen como propósito general, que la
+información sea comprensible y literalmente captable, haciendo uso de objetos físicos
+que sean manipulables de una forma natural.\\
+Otra de las características de la aplicación de los sistemas tangibles en el ámbito
+educativo, es que el entorno visual debe motivar fuertemente al usuario, disponiendo
+de un entorno de fácil uso e intuitivo, y que, además, fomente la capacidad de
+razonamiento, creación e imaginación de los niños.\\
+La evolución de la tecnología aplicada a los modelos actuales de sistemas tangibles, van
+adaptándose para mejorar los diseños y conseguir de esta forma sistemas más fiables.
+No obstante, existen diferentes áreas de mejora localizadas sobre los diferentes
+sistemas de interacción tangible:
+\begin{itemize}
+\item Uso de elementos externos para su funcionamiento: en algunos juegos, es
+imprescindible es uso de un ordenador para su normal funcionamiento (como es
+el caso de Scratch \& WeDo), además del uso de periféricos, por ejemplo, el uso
+de una cámara para el reconocimiento de imágenes.
+\item Elevado número de elementos tangibles para el desarrollo del juego: si bien es
+cierto, que uno de los puntos más importantes a la hora de la programación para
+niños, es poder representar partes de código de diferentes elementos tangibles,
+un gran número de elementos puede suponer un problema para el niño a la hora
+del desarrollo del juego, pudiendo en algunos casos confundirlo.
+\item Enfoque exclusivo de un rango de edades para el juego: en la mayoría de los
+casos, los juegos están enfocados a niños de un determinado rango de edades,
+limitando de esta manera el juego, ya que puede resultar de una dificultad
+elevada para niños de corta edad, o demasiado fáciles para el resto de edades.
+\item Diseño estático del juego: una de las limitaciones de todos los juegos que hacen
+uso de interfaces tangibles, es que no pueden ser actualizados, o no disponen de
+actualizaciones de software, lo que hace que el juego no evolucione, e
+imposibilita posibles futuras mejoras en los juegos.
+\item Alto coste de los bloques o dispositivos de realimentación: el uso de un gran
+número de elementos utilizados para la interacción tangible, eleva el precio del
+diseño.
+\end{itemize}
+
+
+\subsection{Iteración 2: Establecer Requisitos Iniciales e Investigación sobre las Tecnologías a Utilizar}
+
+Las áreas de mejora obtenidas en la Iteración 1 serviran de base para realizar la plataforma de juego. Se analiza cada punto para obtener la mejor solución posible y que tecnología utilizar para cada caso.
+
+\subsubsection{Uso de elementos externos al dispositivo}
+El uso de elementos externos para el funcionamiento del juego, como por ejemplo el uso de un teclado o una pantalla que el propio usuario ya debe de disponer, en ocasiones puede acarrear un problema a la hora de utilizar el juego.\\ 
+Para eliminar el uso de elementos externos para el funcionamiento del sistema de juego, se ha de conseguir diseñar un prototipo el cual prescida de dichos elementos, integrando todo lo necesario dentro de la misma plataforma. Por lo tanto el primer requisito a implementar es: \textbf{Dispositivo completo e independiente de elementos externos al mismo.}
+
+\subsubsection{Elevado número de piezas para la interacción tangible}
+Un sistema de interacción tangible se caracteriza principalmente en que la información sea comprensible y literalmente captable, haciendo uso de objetos físicos que sean manipulables de forma natural. En ocasiones, el número de objetos físicos para el desarrollo del juego es elevado. Si bien es cierto que uno de los puntos más importantes a la hora de la programación para niños, es poder representar partes de código en diferentes elementos tangibles, un gran número de elementos puede suponer un problema para el niño a la hora del desarrollo del juego, pudiendo en algunos casos confundirlo. 
+
+Los sistemas de programación tangible utilizan bloques que al conectarlos o posicionarlos de una manera concreta, generan en tiempo real movimientos o acciones, bien mostrando la acción realizada en una pantalla, o bien mediante algún tipo de robot articulado, etc... Cada bloque indica una acción, por ejemplo bloque de inicio, bloque de fin, bloque de dirección, bloque sensor... 
+
+Para dar solución a este problema, la idea pasa por intentar agrupar los bloques tangibles que son utilizados en los actuales juegos y que tienen como finalidad representar una acción, en un solo elemento tangible.
+
+Se propone el diseño de un dispositivo tangible, que por medio de un microprocesador, muestre en una pantalla estas funciones. 
+Por tanto, el segundo de los requisitos es: \textbf{Agrupar los elementos tangibles que realizan las funciones en un solo dispositivo tangible.}
+
+
+\subsubsection{Enfoque exclusivo del juego en un rango de edades y diseño estático del juego}
+
+Uno de los puntos mas importantes de a tratar es el que la mayoria de los diseños actuales esta enfocado a un rango de edades para el juego, ya que un determinado tipo de juego puede resultar demasiado simple o demasiado complejo para algunos niños, debido a la edad de los mismos. 
+
+Otro punto a tener en consideración es el diseño estático en los juegos de interacción tangible. El usuario dispone de unos recursos para ser utilizados, y aunque las combinaciones y posiciones de elementos tangibles permitan realizar diferentes acciones de juego, no dejan de ser siempre los mismos elementos con los mismos propositos.
+
+Estos dos puntos estan relacionados con una caracteristica común, y es que no tienen la posibilidad de mejorar, no pueden ser actualizdos, al menos que se compre una nueva versión del producto, lo perjudica al usuario final.
+
+Por tanto, el siguiente requisito para el diseño es: \textbf{Disponer de actualizaciones software para posibles mejoras en los juegos.}
+
+\textbf{Alto coste de los bloques o dispositivos de realimentación}
+El alto coste de los bloques o dispositivos de realimentación al igual que el uso de un gran número de elementos utilizados para la interacción tangible, eleva el precio del
+diseño.
+El ultimo de los requisitos es: \textbf{Utilización de elementos de bajo coste para el diseño}
+
+
+
+
+
+Este elemento ha sido denominado con el nombre de «TUIO2» (Tangible User Interface Object).
+
+El dispositivo TUIO2 por si solo no tiene sentido, ya que necesita de algun medio de representación de todas estas funciones. Para ello se ha diseñado el dispositivo tangible «TUIO1», que dispone al igual que el elemento TUIO2, de un microprocesador y una pantalla que permite la representación de estas funciones al interactuar TUIO2 con TUIO1. Este medio de interacción se realiza posicionando TUIO2 sobre la pantalla de TUIO1.
+
+Ambos dispositivos son comunicados entre sí para intercambio de información, mediante comunicación wifi.
+
+TUIO2 en su parte inferior tiene tres almohadillas conductivas posicionadas de tal forma que generan un patrón de coordenadas, que al posicionarse sobre la pantalla de TUIO1, que es capacitiva, detecta la posición y ángulo de TUIO2, estableciendose comunicación entre ambos dispositivos para mandar la información necesaria. La pantalla de TUIO1 muestra las funciones que han sido añadidas, para finalmente realizar la acción que se pretende, siendo dicha acción visualizada en la pantallade TUIO1.
+
+Este tipo de interacción entre ambos elementos no solo se utiliza para añadir funciones desde TUIO2 y que TUIO1 las represente y realice la acción, sino que tambien ofrece la posibilidad de que la acción sea «capturada» por el elemento TUIO2 y que el juego se desarrolle en ambas pantallas, ampliando de esa manera las posibilidades de interacción
+
+El elemento TUOI2 incorpora un sensor inercial, el cual sirve para manejar.........
+
+
+
+
+
+
 \subsection{Iteración : Sistema de localización del Widget tangible sobre la pantalla táctil}
-Uno de los objetivos principales de este TFG es diseñar y programar un sistema de localización y reconocimiento entre las dos interfaces de usuario tangibles. Este sistema de localización consiste en obtener las coordenadas de la posición del «Widget tangible» (TUIO2[MANDAR A ENLACE]) sobre la pantalla táctil capacitiva del dispositivo TUIO1[MANDAR A ENLACE]. Estas coordenadas son enviadas desde TUIO1 a TUIO2. Lo que se quiere obtener es una representación en la pantalla de TUIO2 de la imagen o animación de lo que muestra la pantalla de TUIO1.\\
+Uno de los objetivos principales de este TFG es diseñar y programar un sistema de localización y reconocimiento entre las dos interfaces de usuario tangibles. Este sistema de localización consiste en obtener las coordenadas de la posición del «Widget tangible» sobre la pantalla táctil capacitiva del dispositivo TUIO1. Estas coordenadas son enviadas desde TUIO1 a TUIO2. Lo que se quiere obtener es una representación en la pantalla de TUIO2 de la imagen o animación de lo que muestra la pantalla de TUIO1.\\
 Antes de posicionar TUIO2 sobre TUIO1, las pantallas de ambos dispositivos muestran imágenes diferentes (ver Figura~\ref{fig:Localizacion1}).
 \begin{figure}[!h]
 \begin{center}
@@ -215,5 +315,102 @@ El argumento de estrada es la lista \texttt{coordenadas[]} que contiene las coor
 \texttt{det = abs((c[0][0]*c[1][1])+(c[0][1]*c[2][0])+(c[2][1]*c[1][0])}\\
 \texttt{-((c[1][1]*c[2][0])+(c[0][1]*c[1][0])+(c[0][0]*c[2][1])))*0.5}.\\
 
+\subsection{Iteración : Interfaces gráficas de los dispositivos}
+
+La interfaz gráfica ha sido desarrollada mediante la biblioteca Kivy de Python y consta de una pantalla principal, pantalla de juegos, pantalla de ayuda y pantalla de configuración. Ambos dispositivos han sido diseñados mediante el mismo método de administración de pantallas.\\
+Para acceder a cada una de las pantallas, se ha diseñado un menú en la parte superior de la aplicación. Este menú siempre es visible, y permite navegar por las pantallas de una forma directa.\\
+Las diferentes pantallas son administradas mediante la biblioteca ScreenManager de Kivy.
+ScreenManager es un widget dedicado a administrar múltiples pantallas para aplicaciones y muestra solo una pantalla a la vez en cada una de las transiciones.\\
+Cada una de las pantallas corresponde con un archivo en lenguaje KV, y por lo tanto, de extensión .kv. Estos archivos están localizados en la carpeta data/pantallas de la carpeta raíz de la aplicación.\\
+Los iconos y fondos de pantalla utilizados en la aplicación para la interfaz se encuentran en la carpeta data/icons y data/fondos respectivamente de la carpeta raíz.\\
+
+\subsubsection{Método de administración de pantallas ScreenManager en Python.}
+El método constructor \texttt{build()} de la aplicación principal dispone de las siguientes declaraciones para el administrador de pantallas:
+\begin{lstlisting}[
+  float    = ht,  
+  language = python,
+  caption  = {«Inicialización de las pantallas disponibles para el administrador de pantallas ScreenManager para el dispositivo Principal»},
+  label    = code:initscreens]
+#Objeto dedicado a almacenar los datos de los archivos .kv de cada una
+#de las pantallas
+self.pantallas = {}
+#Listado de las pantallas disponibles
+self.pantallas_disponibles = sorted([
+            			'PantallaPrincipal','PantallaJuegos','PantallaAyuda',
+            			'PantallaConfigurar','PantallaJuego1','PantallaJuego2',
+            			'PantallaJuego3' ])
+#Copia de los nombres de las pantallas
+self.screen_names = self.pantallas_disponibles
+#Se crea un listado con la ruta de cada una de las pantallas en formato .kv
+directorio = dirname(__file__)
+self.pantallas_disponibles = [join(directorio, 'data', 'pantallas',
+	'{}.kv'.format(fn).lower()) for fn in self.pantallas_disponibles]
+
+#Cargar toda la lista de pantallas disponibles.
+for i in range(len(self.pantallas_disponibles)-1):
+	self.go_screen(i)
+
+#Cargar la pantalla principal
+idx = self.screen_names.index('PantallaPrincipal')
+self.go_screen(idx)
+\end{lstlisting}
+
+La función principal es manejar cada una de las pantallas que dispone la aplicación. Se crea un listado con los nombres de las pantallas y otro listado con la ruta donde se encuentran los archivos con el código en lenguaje KV. Posteriormente se carga cada una de las pantallas mediante el método \texttt{go\_screen}.\\
+
+\begin{lstlisting}[
+  float    = ht,  
+  language = python,
+  caption  = {«Método \texttt{go\_screen(), método \texttt{cargar\_pantalla()}} y método \texttt{switch\_to} de ScreenManager»},
+  label    = code:cargarpantallas]
+#Metodo para cargar el codigo de la pantalla
+def cargar_pantalla(self, index):
+	if index in self.pantallas:
+		return self.pantallas[index]
+	screen = Builder.load_file(self.pantallas_disponibles[index])
+	self.pantallas[index] = screen
+	return screen
+
+	#Metodo para mostrar la pantalla deseada
+def go_screen(self, idx):
+	self.index = idx
+	self.root.ids.sm.switch_to(self.cargar_pantalla(idx), direction='left')
+\end{lstlisting}
+
+El método\texttt{go\_screen()} tiene como argumento de entrada el nombre de la pantalla que se quiere mostrar. A su vez se invoca al método \texttt{switch\_to} de \textbf{ScreenManager}, cuya función principal es la de cambiar de pantalla. Los argumentos que utiliza de entrada son el archivo \.kv de la pantalla, y las opciones de desplazamiento. La entrada del archivo con extensión .kv y que contiene el código de la pantalla que se quiere mostrar, se realiza mediante el método \texttt{cargar\_pantalla()}.
+
+\subsubsection{Método de administración de pantallas ScreenManager en Kivy.}
+La administración de las pantallas mediante ScreenManager en Kivy es relativamente sencilla en cuestión de código se refiere. En el archivo KV, en la clase principal de la aplicación, la cual es denominada \texttt{Itanium}, tiene la declaración inicial de ScreenManager, la cual se identifica con \texttt{id: sm} como se muestra en el siguiente listado \label{ScreenManager}:
+\begin{lstlisting}[
+  float    = ht,  
+  language = python,
+  caption  = {«Forma de inicializar ScreenManager en el archivo KV principal de la aplicación»},
+  label    = code:ScreenManager]
+<Itanium>:
+    ScreenManager:
+        id: sm
+\end{lstlisting}
+
+Al cargar una pantalla, el archivo que corresponde a cada una de ellas, debe tener en el encabezado el nombre de la clase principal de la aplicación, seguido del nombre de indentificación \texttt{id}, que se especificó en el constructor de la aplicación como se muestra en el siguiente ejemplo \label{sm_ejemplo}:
+
+\begin{lstlisting}[
+  float    = ht,  
+  language = python,
+  caption  = {«Etiqueta en ScreenManager para identificar la pantalla»},
+  label    = code:sm_ejemplo]
+Itanium:
+    name: "PantallaJuegos"
+\end{lstlisting}
+
+\subsubsection{Barra de acción para el manejo de pantallas.}
+Una vez establecida la forma de mostrar e identificar las pantallas que dispone la aplicación, es necesario navegar por ellas de una forma fácil y rápida. Para ello se ha diseñado una barra de menú que se encuentra en la parte superior de la aplicación, y que muestra un icono para la navegación por pantallas, al igual que un icono que indica la conexión entre ambos dispositivos, y un botón de apagado de la aplicación.
+
+Esta barra de acción es declarada dentro del archivo KV de la aplicación principal, y en ella se indica los distintos elementos que la componen (ver Figura:\label{barra_menu}).  
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{barra_menu.pdf}
+\caption{Barra de acción utilizada en el dispositivo principal. }
+\label{fig:barra_menu}
+\end{center}
+\end{figure}
 
 

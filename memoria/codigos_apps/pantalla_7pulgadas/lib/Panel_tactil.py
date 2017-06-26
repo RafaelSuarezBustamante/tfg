@@ -5,6 +5,7 @@ import math
 import threading
 import errno
 from lib import Comunicaciones_servidor
+from multiprocessing.pool import ThreadPool
 
 
 
@@ -17,9 +18,21 @@ class Localizacion(object):
 		self.coordenadas = [(0,0,0),(0,0,0),(0,0,0)]   #Lista de coordenadas posicion pantalla 3,5"
 		self.area = 0										#Area del triangulo formado por las coordenadas		
 		self.contador = 0
-		#self.values = (0, 0, 0, 0, 1, 0)
-		self.comunicaciones = Comunicaciones_servidor.Comunicaciones7()
-		self.comunicaciones.iniciar_socket()
+		self.values = (0,8,8)
+		self.widget_posicionado = False
+		#self.comunicaciones = Comunicaciones_servidor.Comunicaciones7()
+		#self.con = None
+		#self.iniciar_comunicaciones()
+		print('fin init Localizacion')
+		
+
+	# def iniciar_comunicaciones(self):
+	# 	print('1')
+	# 	pool = ThreadPool(processes=1)
+	# 	async_result = pool.apply_async(self.comunicaciones.iniciar_socket())
+	# 	self.con = async_result.get()
+	# 	print('fin iniciar comuni')
+
 	def pulsacion(self,t):
 		if (len(self.puls)) < 6 :
 			self.puls.append((t.x,t.y,t.id))  #Almacenar las coordenadas del toque
@@ -28,6 +41,7 @@ class Localizacion(object):
 				self.determinar_distancias()
 
 	def toque_up(self,t):
+		self.widget_posicionado = False
 		print(self.puls)
 		for i in range(len(self.puls)):
 			print(t)
@@ -89,12 +103,10 @@ class Localizacion(object):
 		if self.area>9545 and self.area<16000: #Condicion del area del triangulo u2
 			self.coordenadas_init = self.coordenadas[:] #Copia para enviar a la pantalla y mostrar puntos de contacto
 			angulo = self.calculo_angulo(self.coordenadas)
-			print('Area correcta')
-			values = (0, self.coordenadas[0][0], self.coordenadas[0][1], angulo, 1, 0)
-			print('values')
-			print(values)
-			self.enviar_datos(values)
-
+			self.values = (3,1,3, self.coordenadas[0][0], self.coordenadas[0][1], angulo)
+			print('Enviando mensaje:',self.values)
+			#self.enviar_datos(values)
+			self.widget_posicionado = True
 		else:
 			print('Area erronea')
 		
@@ -134,10 +146,11 @@ class Localizacion(object):
 		return angulo
 
 
-	def enviar_datos(self,values):
-		self.comunicaciones.mandar_datos(values)
+	#def enviar_datos(self,values):
+		#self.comunicaciones.mandar_datos(values,self.con)
 
 	def inicializar_a_0(self):
 		self.dist = [(0,'NADA')] #Inicializar lista de distancias	
 		self.contador = 0
 		self.toq = []
+		#self.values = (0,8,8)
