@@ -1,0 +1,67 @@
+#:import Factory kivy.factory.Factory
+#:import KivyLexer kivy.extras.highlight.KivyLexer
+#:include data/screens/mainscreen.kv
+#:include data/screens/examplegame1.kv
+
+
+
+ScreenManagement:
+	id: sm
+	MainScreen:
+		id: main
+	ExampleGame1Screen:
+
+<MainScreen>:
+	name:'main'
+
+
+<ToolBar>:
+	orientation: 'vertical'
+	spacing: 1
+	size_hint: 1, .1
+	pos_hint: {'top': 1}
+	ActionBar:
+		size_hint: 1, .1
+		ActionView:
+			ActionPrevious:
+				title:'TFG'
+				on_release: 
+					if root.ids.sm.current != 'PantallaPrincipal':\
+					idx = app.screenmanagement.screen_names.index('PantallaPrincipal');\
+					app.screen_selector(idx)
+				important: True
+
+			ActionButton: 
+				id: conexion  
+				size_hint: .3,1
+				pos_hint: {'center_y':.5} 
+				disabled: True
+			
+			ActionButton: 
+				icon: 'data/icons/boton_ayuda.png'
+				size_hint: 1,1
+				pos_hint: {'center_y':.45} 
+				on_release:
+					if app.root.current != 'HelpScreen':\
+					app.fsm.events.put(("main_menu","help_screen"))
+
+				important: True
+
+			ActionButton:   
+				icon: 'data/icons/boton_salir.png'
+				size_hint: .8,.8
+				pos_hint: {'center_y':.45} 
+				on_press: 
+					app.get_running_app().stop()
+					app.exit_app()
+
+				important: True
+
+
+<CustomMenssage>:
+	FloatLayout:
+		Label:
+			text: root.texto
+			font_size : 60
+			color: 1,0,1,1
+			pos: 360,170

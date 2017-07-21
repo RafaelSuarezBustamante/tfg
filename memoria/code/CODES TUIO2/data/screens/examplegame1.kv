@@ -1,0 +1,42 @@
+#:import Factory kivy.factory.Factory
+
+
+<ExampleGame1Screen>:
+	name: "examplegame1screen"
+
+	ExampleGame1:
+		id: examplegameid
+
+
+<Background_Game>:
+	
+	canvas.before:
+		PushMatrix:
+		Scale:
+			xyz: 2, 2, 0
+		Rectangle:
+			pos: self.pos
+			size: self.size
+			source: self.source
+	canvas:
+		PopMatrix:
+
+<AnimationIcon>:
+	canvas.before:
+		Rectangle:
+			size: 80,80
+			pos: self.pos
+			source: root.source
+
+
+<Mensaje_Game>:
+	canvas.before:
+		Rectangle:
+			size: 480,320
+			pos: 0,0
+			source: root.source
+
+
+<ExampleGame1>:
+
+
