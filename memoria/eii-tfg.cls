@@ -19,7 +19,7 @@
 % Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{esi-tfg}[2013/08/15 TFG de ESI]
+\ProvidesClass{eii-tfg}[2013/08/15 TFG de ESI]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \PassOptionsToClass{a4paper, 12pt, oneside, openright}{book}
 \ProcessOptions\relax
@@ -40,6 +40,7 @@
 \usepackage[htt]{hyphenat}
 \usepackage{atbeginend}
 \usepackage{xifthen}
+\usepackage{multirow}
 
 \usepackage{enumitem}
 \setlist{topsep=0pt, itemsep=0pt}
@@ -347,7 +348,7 @@
 
 \newcommand{\@address}{}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
-\newcommand{\@city}{Ciudad Real}
+\newcommand{\@city}{Toledo}
 \newcommand{\city}[1]{\renewcommand{\@city}{#1}}
 \newcommand{\@country}{Spain}
 \newcommand{\country}[1]{\renewcommand{\@country}{#1}}
@@ -355,6 +356,8 @@
 \newcommand{\email}[1]{\newcommand{\@email}{#1}}
 \newcommand{\@homepage}{}
 \newcommand{\homepage}[1]{\renewcommand{\@homepage}{#1}}
+\newcommand{\@tfgid}{}
+\newcommand{\tfgid}[1]{\renewcommand{\@tfgid}{#1}}
 
 \newcommand{\@intensification}{}
 \newcommand{\intensification}[1]{%
@@ -425,40 +428,78 @@
 
 \newcommand{\cover}{%
   \begin{center}
-    \fontsize{60}{24}\selectfont
     \thispagestyle{empty}
-    \Large \bfseries
-    \setstretch{1.3}
-
-    \vspace*{2cm}
     \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
 
-    \vspace{2cm}
+    \LARGE{\bf{UNIVERSIDAD DE CASTILLA-LA MANCHA}}
+    
+    \LARGE{ESCUELA DE INGENIERÍA INDUSTRIAL DE}
 
-    UNIVERSIDAD DE CASTILLA-LA MANCHA
-    \vspace{-1mm}
-    ESCUELA DE INGENIERÍA INDUSTRIAL DE TOLEDO
+    \LARGE{TOLEDO}
 
-    \vspace*{\stretch{6}}
-    TRABAJO FIN DE GRADO Nº XX-A/B-XXXXXX
+    \vspace{4mm}
 
-    \vspace*{\stretch{6}}
-    GRADO EN INGENIERÍA INDUSTRIAL Y AUTOMÁTICA
+    \LARGE{TRABAJO FIN DE GRADO Nº \@tfgid}
+ 
+    \vspace{4mm}
 
-    \vspace*{\stretch{4}}
-    {\LARGE \@title}
+    \LARGE{TÍTULO DEL TRABAJO FIN DE GRADO}
+    
+    \vspace{10mm}
 
-    \vspace*{\stretch{2}}
-    {\large \@author}
+    \begin{tabular}{cccl}
+      \multirow{11}{*}{\includegraphics[width=0.25\textwidth]{escudo_II.png}}
+      &  & & Autor:\\
+      &  &  & \\
+      &  &  & \@author \\
+      &  &  & \\
+      &  &  & Director: \\
+      &  &  & \\
+      &  &  & \@advisorFirst \\
+      &  &  & \@advisorSecond \\
+      &  &  & \\
+      &  &  & \\
+      &  &  & \MakeUppercase{\@docmonth{} de \@docyear} \\
+    \end{tabular}
 
-    \vspace*{\stretch{4}}
   \end{center}
-
-  \vfill
-  \hfill
-  {\large \@docmonth, \@docyear}
-  \vspace{\stretch{1}}
   \cleardoublepage
+
+  %% \begin{center}
+  %%   \fontsize{60}{24}\selectfont
+  %%   \thispagestyle{empty}
+  %%   \Large \bfseries
+  %%   \setstretch{1.3}
+
+  %%   \vspace*{2cm}
+  %%   \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
+
+  %%   \vspace{2cm}
+
+  %%   UNIVERSIDAD DE CASTILLA-LA MANCHA
+  %%   \vspace{-1mm}
+  %%   ESCUELA DE INGENIERÍA INDUSTRIAL DE TOLEDO
+
+  %%   \vspace*{\stretch{6}}
+  %%   TRABAJO FIN DE GRADO Nº XX-A/B-XXXXXX
+
+  %%   \vspace*{\stretch{6}}
+  %%   GRADO EN INGENIERÍA INDUSTRIAL Y AUTOMÁTICA
+
+  %%   \vspace*{\stretch{4}}
+  %%   {\LARGE \@title}
+
+  %%   \vspace*{\stretch{2}}
+  %%   {\large \@author}
+
+  %%   \vspace*{\stretch{4}}
+  %% \end{center}
+
+  %% \vfill
+  %% \hfill
+  %% {\large \@docmonth, \@docyear}
+  %% \vspace{\stretch{1}}
+  %% \cleardoublepage
 }
 
 % - portadilla
@@ -477,47 +518,83 @@
 }
 
 \newcommand{\frontpage}{%
-  \thispagestyle{firstpage}
   \begin{center}
-    \Large \bfseries
-    \setstretch{1.3}
-
-    \vspace*{2cm}
+    \thispagestyle{firstpage}
     \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
 
-    \vspace{2cm}
+    \LARGE{\bf{UNIVERSIDAD DE CASTILLA-LA MANCHA}}
+    
+    \LARGE{ESCUELA DE INGENIERÍA INDUSTRIAL DE}
 
-    UNIVERSIDAD DE CASTILLA-LA MANCHA
+    \LARGE{TOLEDO}
 
-    ESCUELA DE INGENIERÍA INDUSTRIAL DE TOLEDO
+    \vspace{4mm}
 
-    \@advisorDepartment
+    \LARGE{TRABAJO FIN DE GRADO Nº \@tfgid}
+ 
+    \vspace{4mm}
 
-    \vspace*{\stretch{4}}
-    \begin{spacing}{0.9}
-      {\normalsize TECNOLOGÍA ESPECÍFICA DE\\\MakeUppercase{\@intensification}}
-    \end{spacing}
+    \LARGE{TÍTULO DEL TRABAJO FIN DE GRADO}
+    
+    \vspace{10mm}
 
-    \vspace*{\stretch{4}}
-    TRABAJO FIN DE GRADO
+    \begin{tabular}{cccl}
+      \multirow{11}{*}{\includegraphics[width=0.25\textwidth]{escudo_II.png}}
+      &  & & Autor:\\
+      &  &  & \\
+      &  &  & \@author \\
+      &  &  & \\
+      &  &  & Director: \\
+      &  &  & \\
+      &  &  & \@advisorFirst \\
+      &  &  & \@advisorSecond \\
+      &  &  & \\
+      &  &  & \\
+      &  &  & \MakeUppercase{\@docmonth{} de \@docyear} \\
+    \end{tabular}
 
-    \vspace*{\stretch{6}}
-    {\LARGE \@title}
   \end{center}
 
-  \vspace*{\stretch{7}}
+  %% \begin{center}
+  %%   \Large \bfseries
+  %%   \setstretch{1.3}
 
-  {\large
-    \@putAuthor
-    \@putAdvisorFirst
-    \@putAdvisorSecond
-  }
+  %%   \vspace*{2cm}
+  %%   \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
 
-  \vspace*{\stretch{4}}
+  %%   \vspace{2cm}
 
-  \vfill
-  \hfill
-  {\large \@docmonth, \@docyear}
+  %%   UNIVERSIDAD DE CASTILLA-LA MANCHA
+
+  %%   ESCUELA DE INGENIERÍA INDUSTRIAL DE TOLEDO
+
+  %%   \@advisorDepartment
+
+  %%   \vspace*{\stretch{4}}
+  %%   \begin{spacing}{0.9}
+  %%     {\normalsize TECNOLOGÍA ESPECÍFICA DE\\\MakeUppercase{\@intensification}}
+  %%   \end{spacing}
+
+  %%   \vspace*{\stretch{4}}
+  %%   TRABAJO FIN DE GRADO
+
+  %%   \vspace*{\stretch{6}}
+  %%   {\LARGE \@title}
+  %% \end{center}
+
+  %% \vspace*{\stretch{7}}
+
+  %% {\large
+  %%   \@putAuthor
+  %%   \@putAdvisorFirst
+  %%   \@putAdvisorSecond
+  %% }
+
+  %% \vspace*{\stretch{4}}
+
+  %% \vfill
+  %% \hfill
+  %% {\large \@docmonth, \@docyear}
   \cleardoublepage
 }
 
@@ -558,25 +635,6 @@
   \cleardoublepage
 }
 
-
-\newcommand{\jury}{%
-  \vspace*{2cm}
-  \noindent\underline{\textbf{{\Large TRIBUNAL:}}}
-  \vspace{1.3cm}
-  \par
-  \textbf{{\large Presidente:}} \\ \par
-  \textbf{{\large Vocal:}} \\ \par
-  \textbf{{\large Secretario:}} \\ \par
-%  \textbf{{\large Vocal 2:}} \\ \par
-  \vspace{2.5cm}
-  \noindent\underline{\textbf{{\Large FECHA DE DEFENSA:}}} \par
-  \vspace{2.2cm}
-  \noindent\underline{\textbf{{\Large CALIFICACIÓN:}}} \par
-  \vspace{3.6cm}
-  \textbf{PRESIDENTE \hfil\hspace{0.5cm} VOCAL \hfil\hspace{1.2cm} SECRETARIO} \par
-  \vspace{3.1cm}
-  Fdo.: \hfil Fdo.: \hfil Fdo.: \par
-}
 
 \addto\captionsspanish{\renewcommand{\appendixname}{Anexo}}
 
