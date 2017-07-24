@@ -519,7 +519,7 @@
 
 \newcommand{\frontpage}{%
   \begin{center}
-    \thispagestyle{firstpage}
+    \thispagestyle{empty}
     \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
 
     \LARGE{\bf{UNIVERSIDAD DE CASTILLA-LA MANCHA}}
