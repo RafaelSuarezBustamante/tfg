@@ -428,38 +428,48 @@
 
 \newcommand{\cover}{%
   \begin{center}
+
     \thispagestyle{empty}
-    \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
+    \includegraphics[width=0.4\textwidth]{escudo_UCLM.pdf}
 
-    \LARGE{\bf{UNIVERSIDAD DE CASTILLA-LA MANCHA}}
+    \fontsize{24}{35}\selectfont
+    \fontfamily{phv}\fontseries{mc}\selectfont
+    {\fontfamily{phv}\fontseries{bc}\selectfont
+      UNIVERSIDAD DE CASTILLA-LA MANCHA}
     
-    \LARGE{ESCUELA DE INGENIERÍA INDUSTRIAL DE}
+    ESCUELA DE INGENIERÍA INDUSTRIAL DE TOLEDO
 
-    \LARGE{TOLEDO}
+    \vspace{6mm}
 
-    \vspace{4mm}
-
-    \LARGE{TRABAJO FIN DE GRADO Nº \@tfgid}
+    \fontsize{22}{24}\selectfont
+    TRABAJO FIN DE GRADO Nº \@tfgid
  
-    \vspace{4mm}
+    \vspace{6mm}
 
-    \LARGE{TÍTULO DEL TRABAJO FIN DE GRADO}
+    \@title
     
-    \vspace{10mm}
+    \vspace{12mm}
 
-    \begin{tabular}{cccl}
-      \multirow{11}{*}{\includegraphics[width=0.25\textwidth]{escudo_II.png}}
-      &  & & Autor:\\
-      &  &  & \\
-      &  &  & \@author \\
-      &  &  & \\
-      &  &  & Director: \\
-      &  &  & \\
-      &  &  & \@advisorFirst \\
-      &  &  & \@advisorSecond \\
-      &  &  & \\
-      &  &  & \\
-      &  &  & \MakeUppercase{\@docmonth{} de \@docyear} \\
+    \fontsize{14}{18}\selectfont
+    \begin{tabular}{rcl}
+      \raisebox{-0.5\height}{\includegraphics[width=0.3\textwidth]{escudo_II.png}}
+      &
+      \rule{0.5cm}{0pt}
+      &
+      \begin{minipage}{0.5\textwidth}
+      Autor:\\
+      \@author
+
+      \vspace{0.2cm}
+
+      Director: \\
+      \@advisorFirst \\
+      \@advisorSecond
+
+      \vspace{0.3cm}
+      
+      \@docmonth{} de \@docyear
+      \end{minipage}
     \end{tabular}
 
   \end{center}
@@ -518,42 +528,7 @@
 }
 
 \newcommand{\frontpage}{%
-  \begin{center}
-    \thispagestyle{empty}
-    \includegraphics[width=0.3\textwidth]{escudo_UCLM.pdf}
-
-    \LARGE{\bf{UNIVERSIDAD DE CASTILLA-LA MANCHA}}
-    
-    \LARGE{ESCUELA DE INGENIERÍA INDUSTRIAL DE}
-
-    \LARGE{TOLEDO}
-
-    \vspace{4mm}
-
-    \LARGE{TRABAJO FIN DE GRADO Nº \@tfgid}
- 
-    \vspace{4mm}
-
-    \LARGE{TÍTULO DEL TRABAJO FIN DE GRADO}
-    
-    \vspace{10mm}
-
-    \begin{tabular}{cccl}
-      \multirow{11}{*}{\includegraphics[width=0.25\textwidth]{escudo_II.png}}
-      &  & & Autor:\\
-      &  &  & \\
-      &  &  & \@author \\
-      &  &  & \\
-      &  &  & Director: \\
-      &  &  & \\
-      &  &  & \@advisorFirst \\
-      &  &  & \@advisorSecond \\
-      &  &  & \\
-      &  &  & \\
-      &  &  & \MakeUppercase{\@docmonth{} de \@docyear} \\
-    \end{tabular}
-
-  \end{center}
+  \cover
 
   %% \begin{center}
   %%   \Large \bfseries
