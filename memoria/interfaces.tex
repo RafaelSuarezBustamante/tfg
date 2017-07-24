@@ -40,7 +40,7 @@ La perfecta interfaz debe entender las necesidades de los usuarios, sus estilos 
 
 
 \section{Interfaz Gráfica de Usuario GUI}
-La interfaz gráfica de usuario «GUI»\footnote{del inglés, Graphical User Interfaz} hace uso de un conjunto de imágenes y objetos de forma gráfica, para mostrar la información proporcionando un entorno visual sencillo que facilita la interacción “HCI”(Human-Computer Interaction). Algunas de estas GUI son diseñadas para un uso específico como son las pantallas táctiles, que simplifican aún más la interacción HCI mediante el sentido del tacto.
+La interfaz gráfica de usuario \emph{GUI}\footnote{del inglés, Graphical User Interfaz} hace uso de un conjunto de imágenes y objetos de forma gráfica, para mostrar la información proporcionando un entorno visual sencillo que facilita la interacción “HCI”(Human-Computer Interaction). Algunas de estas GUI son diseñadas para un uso específico como son las pantallas táctiles, que simplifican aún más la interacción HCI mediante el sentido del tacto.
 La interfaz entre personas e información digital, requiere de dos componentes fundamentales: la entrada y salida o control y representación. Los controles permiten a los usuarios manipular la información, mientras que las representaciones externas son percibidas por medio de los sentidos humanos. La siguiente representación (ver Figura~\ref{fig:GUI}), muestra el modelo básico de una interacción con interfaz gráficas. En ella se hace uso de un elemento de entrada, como controlador remoto (ratón de ordenador), cuya información digital es procesada para ser representada de manera intangible mediante un monitor o produciendo un sonido determinado. Es decir, el usuario interactúa mediante un dispositivo a distancia y, en última instancia, experimenta una representación intangible de información digital (pixeles y sonido).
 
 \begin{figure}[!h]
@@ -52,7 +52,7 @@ La interfaz entre personas e información digital, requiere de dos componentes f
 \end{figure}
 
 \section{Interfaz Tangible de Usuario TUI}
-Las interfaces de usuario tangibles “TUI” (Tangible User Interface), en su área de estudio, tiene como objetivo analizar el paradigma de interacción HCI, no limitándolo a una simple pantalla. Hacer que la información sea comprensible y literalmente captable, es la finalidad principal de la interacción tangible, al proporcionar representación física de los datos digitales mediante objetos que los representen “TUIOs”(Tangible User Interface Objects). Estos objetos pueden ser utilizados con la manipulación natural de los usuarios, realizando un puente de unión entre el mundo digital y el mundo real.
+Las interfaces de usuario tangibles \emph{TUI} (Tangible User Interface), en su área de estudio, tiene como objetivo analizar el paradigma de interacción HCI, no limitándolo a una simple pantalla. Hacer que la información sea comprensible y literalmente captable, es la finalidad principal de la interacción tangible, al proporcionar representación física de los datos digitales mediante objetos que los representen “TUIOs”(Tangible User Interface Objects). Estos objetos pueden ser utilizados con la manipulación natural de los usuarios, realizando un puente de unión entre el mundo digital y el mundo real.
 
 El objetivo detrás de las interfaces tangibles es permitir la interacción con las computadoras a través de objetos familiares, combinando la experiencia del usuario en el mundo táctil con el poder de la tecnología (Ishii, 1997).
 Tal interacción física es básicamente de tipo unidireccional, dirigida desde el usuario al sistema, limitando los posibles patrones de interacción. En otras palabras, el sistema no tiene medios para apoyar activamente la interacción física.
@@ -92,17 +92,17 @@ Inicialmente este tipo de interfaz, fue diseñada con el propósito de mostrar l
 De manera posterior, los fabricantes aprovecharon esta tecnología para ampliar las aplicaciones posibles, incorporando visualizaciones independientes, aumentando el rango de visión de las aplicaciones, etc.
 
 Son muy distintos los ámbitos de aplicación de esta tecnología, pudiéndose incorporar en los sistemas de control en la industria, sistemas de video-vigilancia, fabricación de juegos, etc.
-El uso de varias pantallas en la industria de los videojuegos fue introducida por Nintendo en 1980 con su serie de consolas portátiles "Game and Watch".
+El uso de varias pantallas en la industria de los videojuegos fue introducida por Nintendo en 1980 con su serie de consolas portátiles \emph{Game and Watch}.
 
 
 \section{Pantallas capacitivas.}
 La gran mayoría de los dispositivos comercialmente disponibles actualmente y que hacen uso de una pantalla, usan la tecnología de contacto capacitivo.
 Las pantallas capacitivas multitáctiles no han sido diseñadas para detectar objetos pasivos al ser situados sobre ellas, estas pantallas incluso disponen de filtros para rechazar de manera activa ese tipo de eventos táctiles.
-Los «widgets tangibles» en tales pantallas táctiles capacitivas, se han empezado a explorar relativamente hace poco más de una década\cite{Rekimoto}, pero necesitan generalmente del cuerpo del usuario para proporcionar la capacitancia necesaria para la detección del tacto. La gran limitación es que, para mantener la detección, el usuario tiene que seguir tocando la superficie conductora del «widget».
+Los \emph{widgets tangibles} en tales pantallas táctiles capacitivas, se han empezado a explorar relativamente hace poco más de una década\cite{Rekimoto}, pero necesitan generalmente del cuerpo del usuario para proporcionar la capacitancia necesaria para la detección del tacto. La gran limitación es que, para mantener la detección, el usuario tiene que seguir tocando la superficie conductora del \emph{widget}.
 
 Las pantallas táctiles capacitivas, detectan la presencia de un conductor eléctrico conectado a tierra, por lo general un dedo humano, cerca de la superficie de la pantalla que es detectado mediante el uso de electrodos transparentes situados encima de la misma.
 Principalmente existen dos técnicas de detección: auto capacitancia y capacitancia mutua~\cite{Barrett}. La capacitancia mutua es el método más comúnmente utilizado en pantallas de tipo multitáctil.
-La configuración en la que se disponen los electrodos en una pantalla de capacitancia mutua consiste en un conjunto de filas y otro conjunto de columnas. Uno de los conjuntos actúa como transmisores (Tx) y el otro conjunto como receptores (Rx) [Rekimoto].
+La configuración en la que se disponen los electrodos en una pantalla de capacitancia mutua consiste en un conjunto de filas y otro conjunto de columnas. Uno de los conjuntos actúa como transmisores (Tx) y el otro conjunto como receptores (Rx)~\cite{Rekimoto}.
 
 Al aplicar una señal a uno de los electrodos Tx, la capacitancia entre ese electrodo Tx y otro electrodo Rx (que está entrecruzado) acopla la señal al electrodo Rx~\cite{Silicon}. La señal de cada uno de los electrodos Rx es medida y mediante un controlador táctil es determinada la capacitancia entre el electrodo Tx activo y cada uno de los electrodos Rx. Al ser activado un electrodo Tx de manera simultánea (multiplexación en el tiempo), el controlador táctil es capaz de medir esta capacitancia en cada una de las intersecciones de los electrodos Tx - Rx en la pantalla.
 Cuando un conductor conectado a tierra como es el caso de un dedo, se aproxima a una de estas intersecciones entre electrodos Tx-Rx, la capacitancia entre ambos electrodos se ve reducida cuando el campo eléctrico entre ellos es perturbado por el conductor~\cite{Zimmerman}.
@@ -114,13 +114,13 @@ La mayor parte de los controladores están diseñados para detectar toques con l
 Resumiendo, para que el controlador informe de un evento táctil, la capacitancia del electrodo Tx-Rx ha de ser reducida por debajo de cierto umbral y ha de suceder a lo largo una elíptica que forma la yema de un dedo.
 
 
-\subsection{Funcionamiento de un «widget capacitivo».}
+\subsection{Funcionamiento de un \emph{widget capacitivo}.}
 
-Se define «widget capacitivo» como un objeto tangible completo que contiene uno o más marcadores en su parte inferior y que comunican su posición a la superficie táctil de la pantalla capacitiva. Cada marcador consiste en una almohadilla redonda conductiva que es detectada por la superficie de la pantalla.
+Se define \emph{widget capacitivo} como un objeto tangible completo que contiene uno o más marcadores en su parte inferior y que comunican su posición a la superficie táctil de la pantalla capacitiva. Cada marcador consiste en una almohadilla redonda conductiva que es detectada por la superficie de la pantalla.
 
-Un marcador de «widget» para poder ser detectado como evento táctil sobre la superficie de la pantalla capacitiva tiene que cumplir el requisito de conexión a tierra. Esto se puede conseguir mediante la capacitancia corporal de un usuario como propone Rekimoto[]. Esto requiere que el usuario toque el «widget» y que las almohadillas del mismo sean conductivas, además de estar conectadas eléctricamente a la parte del «widget» que es tocada por el usuario. De esta forma el «widget» funciona simplemente como conductor eléctrico entre usuario y superficie táctil. Este enfoque tiene el inconveniente de tan pronto como el usuario deja de tener contacto, el controlador de la pantalla no puede detectar ninguna variación de capacitancia.
+Un marcador de \emph{widget} para poder ser detectado como evento táctil sobre la superficie de la pantalla capacitiva tiene que cumplir el requisito de conexión a tierra. Esto se puede conseguir mediante la capacitancia corporal de un usuario como propone Rekimoto~\cite{Rekimoto}. Esto requiere que el usuario toque el \emph{widget} y que las almohadillas del mismo sean conductivas, además de estar conectadas eléctricamente a la parte del \emph{widget} que es tocada por el usuario. De esta forma el \emph{widget} funciona simplemente como conductor eléctrico entre usuario y superficie táctil. Este enfoque tiene el inconveniente de tan pronto como el usuario deja de tener contacto, el controlador de la pantalla no puede detectar ninguna variación de capacitancia.
 
-Otro enfoque que permite reemplazar al usuario como tierra eléctrica, es el uso de un cable conductor que conecta permanentemente el «widget» a un objeto relativamente conectado a tierra, como es el conector negativo de una batería.
+Otro enfoque que permite reemplazar al usuario como tierra eléctrica, es el uso de un cable conductor que conecta permanentemente el \emph{widget} a un objeto relativamente conectado a tierra, como es el conector negativo de una batería.
 
 
 
