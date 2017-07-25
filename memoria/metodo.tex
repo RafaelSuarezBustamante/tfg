@@ -55,8 +55,6 @@ Se acuerda para el desarrollo de la memoria utilizar la herramienta de procesami
 
 
 
-
-
 \subsubsection{Próximas iteraciones e historias de usuario.}
 Se acuerda establecer la \textbf{Metodología Scrum} adaptada, que fue expuesta en el capítulo \textbf{Método de trabajo}.\
 Para la primera iteración se definen los siguientes pasos a seguir:
@@ -66,56 +64,17 @@ Para la primera iteración se definen los siguientes pasos a seguir:
 \item Historia de usuario: preparar una primera propuesta de diseño según el primer análisis del problema.
 \end{itemize}
 
-
 \subsection{Iteración 1 : Formación y Planificación del TFG }
-En esta primera iteración se expone la propuesta desarrollada tras un primer análisis, que es presentada como \textbf{historia de usuario}. 
 
-\subsubsection{Historia de usuario: Primera propuesta de diseño}
-Transcurrida la primera reunión, se decide realizar un pequeño análisis para determinar que tipo de plataforma de juego se adapta a la programación tangible para niños, entendiendo como funcionan estas plataformas.
+Esta primera iteración tiene como objetivo determinar que tipo de plataforma de juego se adapta a la programación tangible para niños, entendiendo como funcionan estas plataformas.
 
 Estos sistemas permiten a los niños, escribir un programa mediante el uso de objetos físicos sin hacer uso de un teclado, para posteriormente ver los resultados realizados por ellos mismos.
 
-Se realiza una primera propuesta que consiste en pequeños cubos, que enlazados entre sí de forma correcta, generen algún tipo de realimentación, como por ejemplo, sonidos o alguna indicación de tipo óptico, y que de manera inalámbrica, se comuniquen con otro dispositivo que sirva de base y sea el encargado de determinar si las acciones llevadas a cabo con los cubos son las correctas.
+Realizar el análisis de una primera propuesta basada en un sistema tangible, y dedicado a la programación tangible para niños. Identificar dentro de la propuesta que elementos se identifican con la programación tangible.
 
-En la Figura~\ref{fig:Propuesta1cubos} se muestra la disposición de los cubos. Estos cubos están divididos en tres tipos:
-
-\begin{itemize}
-\item \textbf{Elemento de inicio}. Este cubo sirve como elemento principal de la aplicación. Dentro del mismo se incluye un módulo «Wifi ESP8266», el cual es el encargado de la comunicación con la base. Dispone de una fuente interna de alimentación que alimenta al resto de cubos una vez conectados.
-\item \textbf{Elemento tipo evento}. Elementos para generar un evento dentro de la secuencia al realizar una conexión entre cubos, como pueden ser eventos de tipo temporización, luminosos, acústicos, etc.
-\item \textbf{Elemento fin}. Este elemento se debe situar al final de la secuencia de cubos para poder iniciar la propia secuencia establecida dentro del elemento inicio y fin. 
-\end{itemize}
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{Propuesta1cubos.pdf}
-\caption{Diseño de la primera propuesta para el sistema tangible}
-\label{fig:Propuesta1cubos}
-\end{center}
-\end{figure}
-
-La comunicación con los diferentes cubos se realiza mediante bus serie de 4 líneas (entrada de datos, salida de datos, habilitación y señal de reloj).
-Al ser ejecutado un programa, los diferentes cubos son iluminados de manera secuencial, es decir, desde el cubo elemento inicio, pasando por los diferentes cubos que realizan los eventos, hasta el cubo denominado fin.\
-\textbf{Control de la iluminación de los cubos}.\
-Cada uno de los cubos dispone de un número de identificación de 3 bits. El microcontrolador «ESP8266» establece una comunicación serie mediante el envio de una trama de 8 bits. Estos bits son almacenados en un registro de desplazamiento de entrada serie y salida en paralelo. Los bits más significativos son utilizados para identificar el cubo (3 bits, cubos del 0 al 7). Los bits menos significativos son utilizados para realizar la iluminación del cubo. La Figura~\ref{fig:Propuesta1registros}
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{Propuesta1registros.pdf}
-\caption{Diseño de los registros de desplazamiento dentro de los cubos para indicar la posición de la secuencia dentro el sistema tangible}
-\label{fig:Propuesta1registros}
-\end{center}
-\end{figure}
-
-La comunicación entre los diferentes cubos se realiza mediante conectores magnéticos tipo «Micro USB». Al ser magnéticos facilita la conexión entre ellos.
-
-\subsubsection{Resultados tras el análisis de la primera propuesta de diseño}
-
-La primera propuesta de diseño queda descartada. Entre los motivos destaca el hecho de que actualmente en el mercado existen dispositivos de características muy similares, no aportando nada destacable, además de poder ser peligrosos los conectores magnéticos en una futura industrialización de la plataforma, al ser usado por niños.
-
-Descartada la primera propuesta, se establece que el próximo objetivo es \textbf{ conocer el alcance del proyecto}, entendiendo que hay que construir, realizando un \textbf{estudio} más amplio que el realizado hasta ahora sobre los actuales sistemas tangibles enfocados a la programación tangible para niños. Además se ha de investigar sobre la \textbf{tecnología y características} que utilizan cada uno de ellos, para poder identificar cuáles son los puntos que se pueden mejorar en esos sistemas, y contribuir a mejóralos mediante el diseño de una plataforma de juego que resuelva todos esos puntos. Este análisis permitirá \textbf{establecer los requisitos} que debe tener la plataforma a diseñar, y que \textbf{tecnologías} utilizar en ella, para posteriormente establecer los pasos a realizar para alcanzar una serie de objetivos específicos dentro de la aplicación.\
 
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Estudio avanzado del problema. Revisión sistemática (recopilación de información).
 \item Identificar áreas de mejora en los actuales sistemas tangibles.
@@ -125,11 +84,13 @@ Se acuerda para la próxima iteración los siguientes puntos:
 
 \subsection{Iteración 2: Estudio avanzado del problema. Identificación y selección de las áreas de mejora en sistemas tangibles.}
 
-\subsubsection{Estudio avanzado del problema.}
-En el \textbf{Capítulo Antecedentes} de este documento, se muestran los resultados sobre los principales estudios experimentales aplicados a la interacción tangible, y como motiva a niños de tempranas edades en sus habilidades computacionales. En ese capítulo se indican algunos de los dispositivos más importantes y que diferentes enfoques aportan en la interacción tangible, y que han sido utilizados para el aprendizaje computacional, así como sus características y tecnología utilizada. 
-Realizado el análisis de los diferentes dispositivos, se exponen las áreas en los actuales sistemas tangibles.
+Esta iteración se establece realizar un estudio avanzado del problema para obtener las áreas de mejora que se encuentran en los actuales sistemas de programación tangible para niños.
 
-\subsubsection{Áreas de mejora en sistemas tangibles.}
+
+\subsubsection{Estudio avanzado del problema.}
+En el \textbf{Capítulo Antecedentes} de este documento, se muestran los resultados sobre los principales estudios experimentales aplicados a la interacción tangible, y como motiva a niños de tempranas edades en sus habilidades computacionales. En ese capítulo se indican algunos de los dispositivos más importantes y que diferentes enfoques aportan en la interacción tangible, y que han sido utilizados para el aprendizaje computacional, así como sus características y tecnología utilizada. El estudio se realiza para identificar las áreas de mejora en sistemas tangibles.
+
+\subsubsection{Identificar áreas de mejora en sistemas tangibles.}
 Los diferentes sistemas de interacción tangible tienen como propósito general que la
 información sea comprensible y literalmente captable, haciendo uso de objetos físicos
 que sean manipulables de una forma natural.\\
@@ -139,28 +100,9 @@ de un entorno de fácil uso e intuitivo, y que además fomente la capacidad de
 razonamiento, creación e imaginación de los niños.\\
 La evolución de la tecnología aplicada a los modelos actuales de sistemas tangibles, van
 adaptándose para mejorar los diseños y conseguir de esta forma sistemas más fiables.
-No obstante, existen diferentes áreas de mejora localizadas sobre los diferentes
-sistemas de interacción tangible:\
-\begin{itemize}
-\item \textbf{Uso de elementos externos para su funcionamiento}. En algunos juegos es
-imprescindible es uso de un ordenador para su normal funcionamiento (como es
-el caso de Scratch \& WeDo), además del uso de periféricos, por ejemplo, el uso
-de una cámara para el reconocimiento de imágenes.
-\item \textbf{Elevado número de elementos tangibles para el desarrollo del juego}. Si bien es cierto que uno de los puntos más importantes a la hora de la programación para
-niños, es poder representar partes de código de diferentes elementos tangibles,
-un gran número de elementos puede suponer un problema para el niño a la hora
-del desarrollo del juego, pudiendo en algunos casos confundirlo.
-\item \textbf{Enfoque exclusivo de un rango de edades para el juego}. En la mayoría de los casos, los juegos están enfocados a niños de un determinado rango de edades,
-limitando de esta manera el juego, ya que puede resultar de una dificultad
-elevada para niños de corta edad, o demasiado fáciles para el resto de edades.
-\item \textbf{Diseño estático del juego}. Una de las limitaciones de todos los juegos que hacen uso de interfaces tangibles, es que no pueden ser actualizados, o no disponen de
-actualizaciones de software, lo que hace que el juego no evolucione e imposibilita posibles futuras mejoras en los juegos.
-\item \textbf{Alto coste de los bloques o dispositivos de realimentación}. El uso de un gran número de elementos utilizados para la interacción tangible eleva el precio del
-diseño.
-\end{itemize}
 
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Establecer requisitos iniciales.
 \item Identificar y redactar objetivos.
@@ -171,165 +113,15 @@ Se acuerda para la próxima iteración los siguientes puntos:
 
 \subsection{Iteración 3: Establecer Requisitos Iniciales e Investigación sobre las Tecnologías a Utilizar}
 
-Las áreas de mejora obtenidas en la Iteración 2 servirán de base para realizar la plataforma de juego. Se analiza cada punto para obtener la mejor solución posible, y que tecnología utilizar para cada caso.
+Las áreas de mejora obtenidas en la Iteración 2 servirán de base para realizar la plataforma de juego. Se analiza cada punto para obtener la mejor solución posible, y que tecnología utilizar para cada caso.\
 
-\subsubsection{Uso de elementos externos al dispositivo}
-El uso de elementos externos para el funcionamiento del juego, como por ejemplo el uso de un teclado o una pantalla que el propio usuario debe de disponer, en ocasiones puede acarrear un problema a la hora de utilizar el juego.\\ 
-Para eliminar el uso de elementos externos para el funcionamiento del sistema de juego, se ha de conseguir diseñar un prototipo el cual precisa de dichos elementos, y que integre todo lo necesario dentro de la misma plataforma. 
+Establecer los requisitos a implementar en la plataforma de juego.
 
-\subsubsection{Elevado número de piezas para la interacción tangible}
-Un sistema de interacción tangible se caracteriza principalmente en que la información sea comprensible y literalmente captable, haciendo uso de objetos físicos que sean manipulables de forma natural. En ocasiones, el número de objetos físicos para el desarrollo del juego es elevado. Si bien es cierto que uno de los puntos más importantes a la hora de la programación para niños, es poder representar partes de código en diferentes elementos tangibles, un gran número de elementos puede suponer un problema para el niño a la hora del desarrollo del juego, pudiendo en algunos casos confundirlo. 
+Exponer y analizar la segunda propuesta de diseño de juego, basada en los requisitos expuestos.
 
-Los sistemas de programación tangible utilizan bloques que al conectarlos o ser posicionados de una manera concreta, generan en tiempo real movimientos o acciones, bien mediante la representación de la acción realizada en una pantalla, o bien mediante algún tipo de robot articulado. Cada bloque indica una acción, por ejemplo, bloque de inicio, bloque de fin, bloque de dirección, bloque sensor. 
-
-Para dar solución a este problema, la idea pasa por intentar agrupar los bloques tangibles que son utilizados en los actuales juegos y que tienen como finalidad representar una acción, en un solo elemento tangible.
-
-Se propone el diseño de un dispositivo tangible, que, por medio de un microprocesador, muestre en una pantalla estas funciones. 
-
-
-\subsubsection{Enfoque exclusivo del juego en un rango de edades y diseño estático del juego}
-
-La mayoría de los diseños actuales están enfocados a un rango de edades para el juego, ya que un determinado tipo de juego puede resultar demasiado simple o demasiado complejo para algunos niños debido a la edad de los mismos. 
-
-Otro punto a tener en consideración es el diseño estático en los juegos de interacción tangible. El usuario dispone de unos recursos para ser utilizados, y aunque las combinaciones y posiciones de elementos tangibles permitan realizar diferentes acciones de juego, no dejan de ser siempre los mismos elementos con los mismos propósitos.
-
-Estos dos puntos están relacionados con una característica común, y es que no tienen la posibilidad de mejorar, no pueden ser actualizados al menos que se compre una nueva versión del producto, lo perjudica al usuario final.
-
-\textbf{Alto coste de los bloques o dispositivos de realimentación}
-El alto coste de los bloques o dispositivos de realimentación al igual que el uso de un gran número de elementos utilizados para la interacción tangible, eleva el precio del
-diseño.
-
-
-Por lo tanto, los requisitos a implementar en la plataforma de juego son:
-\begin{itemize}
-\item \textbf{Dispositivo completo e independiente de elementos externos al mismo.}
-\item \textbf{Agrupar los elementos tangibles que realizan las funciones en un solo dispositivo tangible.}
-\item \textbf{Disponer de actualizaciones software para posibles mejoras en los juegos.}
-\item \textbf{Utilización de elementos de bajo coste para el diseño }
-
-\end{itemize}
-
-
-Se procede a exponer y analizar la segunda propuesta de diseño de juego, basada en los requisitos expuestos.
-
-\subsubsection{Historia de usuario: Segunda propuesta de diseño}
-
-El sistema consta de dos cubos. Uno de mayor tamaño (cubo principal), que sirve de interfaz gráfica para la realización de los juegos, y otro cubo de menor tamaño (cubo auxiliar), utilizado de apoyo para la interacción del juego. De manera muy genérica se procede a la descripción de su estructura.\
-\textbf{Descripción del cubo principal.}\
-
-Dispone de una pantalla táctil para visualizar e interactuar con el juego. La estructura del cubo alberga el sistema de control («Raspberry Pi») y un conjunto de sensores. Los sensores que componen el cubo son los siguientes:
-\begin{itemize}
-\item \textbf{Sensores de proximidad:} situados en las cuatro caras que rodean la pantalla.
-\item \textbf{Magnetómetro:} utilizado para detectar el cubo auxiliar en una posición concreta encima de la pantalla o en las proximidades del cubo principal.
-\end{itemize}. La Figura~\ref{fig:Propuesta2cuboprincipal} muestra el diseño del cubo principal.\
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Propuesta2cuboprincipal.pdf}
-\caption{Diseño del cubo principal en la segunda propuesta de diseño}
-\label{fig:Propuesta2cuboprincipal}
-\end{center}
-\end{figure}
-
-\textbf{Descripción del cubo auxiliar.}\
-El tamaño de este cubo es mucho menor que el principal para poder desplazarse por la pantalla del cubo principal. Dispone de una pantalla táctil en la parte superior.
-Se hace uso de un giroscopio para determinar su orientación.
-La propuesta para controlar los eventos generados y comunicarse con el cubo principal es el microcontrolador «ESP8266 ESP-12». Figura~\ref{fig:Propuesta2cuboaux}\
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Propuesta2cuboaux.pdf}
-\caption{Diseño del cubo auxiliar en la segunda propuesta de diseño}
-\label{fig:Propuesta2cuboaux}
-\end{center}
-\end{figure}
-
-
-\textbf{Ejemplos de aplicaciones.}\
-Se proponen algunas propuestas de juegos de manera muy básica, donde son utilizados los diferentes sensores de la plataforma de juego. Se hace uso de colores por simplicidad en la explicación.
-
-\begin{itemize}
-\item \textbf{Definir una secuencia.} La pantalla del cubo principal se divide en nueve secciones para que la interacción sea más intuitiva.
-A continuación, se define el recorrido que tendrá el juego mediante el deslizamiento del dedo sobre la superficie de la pantalla (ver Figura~\ref{fig:Propuesta2secuencia1}).
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.3\textwidth]{Propuesta2secuencia1.pdf}
-\caption{Definir una secuencia en el cubo principal de la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia1}
-\end{center}
-\end{figure}
-El programa comienza a ejecutarse en función del recorrido marcado, desplazándose de un cuadro a otro. Como ejemplo simple se hace uso de un cuadrado de color verde que se desplaza sobre el tablero (ver Figura~\ref{fig:Propuesta2secuencia2}).\
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{Propuesta2secuencia2.pdf}
-\caption{Desarrollo de la secuencia en el cubo principal de la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia2}
-\end{center}
-\end{figure}
-
-\item \textbf{Uso de sensores de proximidad.} Mediante la aproximación de la mano sobre los laterales donde se encuentran estos sensores el cuadro es desplazado, siendo la secuencia alterada (ver Figura~\ref{fig:Propuesta2secuencia3}).\
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{Propuesta2secuencia3.pdf}
-\caption{Modificación de la secuencia en el cubo principal mediante el uso de sensores de proximidad en la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia3}
-\end{center}
-\end{figure}
-
-
-\item \textbf{Interacción entre ambos cubos.} Se pretende realizar una interacción directa entre los dos cubos, dando lugar a un intercambio de información entre ambos elementos, permitiendo modificar la secuencia realizada directamente con el cubo auxiliar. Como ejemplo se propone realizar una «captura» dentro de la secuencia. La idea es posicionar el cubo auxiliar sobre el cubo principal para realizar una «captura» sobre el cuadro activo que queda eliminado finalmente de la secuencia. (ver Figura~\ref{fig:Propuesta2secuencia4}). Una vez «capturado» el cuadro, se puede modificar los atributos del mismo, mediante la pantalla del cubo auxiliar (ver Figura~\ref{fig:Propuesta2secuencia5}).
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{Propuesta2secuencia4.pdf}
-\caption{Captura del cuadro activo dentro de la secuencia en el cubo principal, mediante el uso del cubo auxiliar en la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia4}
-\end{center}
-\end{figure}
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{Propuesta2secuencia5.pdf}
-\caption{Modificación de la secuencia en el cubo principal mediante el uso del cubo auxiliar en la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia5}
-\end{center}
-\end{figure}
-
-Posteriormente se emplaza en otra localización para continuar la secuencia (Figura~\ref{fig:Propuesta2secuencia6}).
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{Propuesta2secuencia6.pdf}
-\caption{Emplazamiento dentro de la secuencia en el cubo principal del cuadro modificado, mediante el uso del cubo auxiliar en la segunda propuesta de diseño}
-\label{fig:Propuesta2secuencia6}
-\end{center}
-\end{figure}
-
-\end{itemize}
-
-
-\subsubsection{Resultados tras el análisis de la segunda propuesta de diseño}
-Junto con \textbf{Francisco Moya Fernández} se decide aceptar la segunda propuesta de diseño ya que cumple con los requisitos establecidos. Se acuerda realizar algunas modificaciones al encontrar posibles futuros problemas en ciertos puntos del diseño. Estos posibles problemas son:
-\begin{itemize}
-\item \textbf{Localización del dispositivo de menor tamaño sobre el de mayor tamaño, mediante un magnetómetro.} Debido a que el sensor no ofrecerá la precisión necesaria que requiere la aplicación para indicar una localización exacta del dispositivo respecto a otro, se decide eliminar esta característica a la espera de \textbf{buscar una solución} para la localización. Queda pendiente como próxima historia de usuario en la siguiente iteración.
-\item \textbf{Tamaño de las pantallas de ambos dispositivos y microcontrolador del dispositivo de menor tamaño.} La opción de utilizar el microcontrolador «ESP8266» queda descartada debido a posibles problemas en el flujo de datos en el transcurso del juego, ya que posiblemente, la visualización del entorno gráfico no sea adecuada. Por otro lado, el tamaño de las pantallas no está definido. Este aspecto será tratado como próxima historia de usuario conjuntamente con establecer un nuevo sistema de procesamiento de datos.
-\end{itemize}
-
-Las características y elementos aceptados en la propuesta de diseño son:\
-\begin{itemize}
-\item \textbf{Desarrollar la plataforma de juego con dos dispositivos para la interacción.}
-\item \textbf{Interfaz gráfica de usuario mediante pantalla táctil en ambos dispositivos.}
-\item \textbf{«Raspberry Pi» como elemento principal de procesamiento de datos en el dispositivo de mayor tamaño.}
-\item \textbf{Implementación de sensores ópticos e inerciales.} 
-\item \textbf{Uso de la interacción directa entre ambos dispositivos para la localización del elemento de menor tamaño sobre el de mayor tamaño.}
-\end{itemize}
-
-Todas estas características cumplen con los requisitos iniciales del sistema, y serán aplicadas en el diseño final de la plataforma de juego. Queda abierta la posibilidad de añadir futuras modificaciones sobre las ya implementadas.
 
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Establecer objetivos específicos.
 \item Finalizar estudio tecnológico para establecer tecnologías a utilizar.
@@ -337,13 +129,11 @@ Se acuerda para la próxima iteración los siguientes puntos:
 \item Historia de usuario: procesamiento de datos del dispositivo de menor tamaño, y establecer tamaños en pantallas de ambos dispositivos
 \end{itemize}
 
-
 \subsection{Iteración 4: Establecer Objetivos y Tecnologías a Utilizar}
 
 En esta iteración se define el objetivo general del presente Trabajo Fin de Grado, así como los objetivos específicos que definirán el transcurso del resto de iteraciones hasta obtener el resultado deseado. Los objetivos específicos podran ser modificados acorde con las necesidades del dispositivo.
 
 \subsubsection{Objetivos del TFG}
-
 
 \textbf{Objetivo general}: Diseñar y desarrollar una plataforma interactiva de juego de bajo coste, basada en interfaces tangibles, haciendo uso de las nuevas tecnologías, para promover el desarrollo de capacidades en niños de corta edad.
 
@@ -362,24 +152,14 @@ En esta iteración se define el objetivo general del presente Trabajo Fin de Gra
 \item Diseñar un sistema de actualización de software de los dispositivos, a través de la conexión externa a un servidor.
 \end{itemize}
 
-\subsubsection{Historia de usuario: Sistema de localización entre ambos dispositivos}
+\subsubsection{Sistema de localización entre ambos dispositivos}
 De manera conjunta con las búsquedas de nuevas tecnologías, y antes de proceder a exponer que tecnologías utilizar, se formula la propuesta del sistema de localización entre dispositivos para ser valorada junto con \textbf{Francisco Moya Fernández}.
+ 
+\subsubsection{Procesamiento de datos del dispositivo de menor tamaño, y establecer tamaños en pantallas de ambos dispositivos }
 
-El sistema de localización planteado para dar solución a la falta de precisión de un magnetómetro en este tipo de aplicaciones, consiste en integrar dentro del dispositivo un panel capacitivo sobre la pantalla del dispositivo de mayor tamaño, que detecte eventos táctiles de forma simultanea. El dispositivo de menor tamaño dispondrá de tres elementos conductivos acoplados en la parte inferior, y que forman un patrón (triángulo). Al ser posicionado sobre la superficie del panel capacitivo se generan tres eventos táctiles. Estos eventos sirven de referencia para obtener las coordenadas del dispositivo sobre el panel tactil.
+Para corregir los posibles problemas que puede causar en el entorno gráfico en el dispositivos se debe determinar el microcontrolador usado en los dispositivos.
 
-Para realizar el sistema de localización son identificados los dispositivos mediante acrónimos. El elemento de mayor tamaño como \emph{TUIO1} y el dispositivo de menor tamaño \emph{TUIO2}.\emph{TUIO} hace referencia a las siglas en ingles de \textbf{Tangible User Interface Object}.
-
-El objertivo es obtener es una interacción directa entre dispositivos, ofreciendo la posibilidad de intercambiar información durante el desarrollo de un juego, tal y como se expuso en la \textbf{Iteración 3}, en los ejemplos de juegos de la segunda propuesta de diseño.
-
-Uno de los requisitos iniciales expuestos en la \textbf{Iteración 3}, es reducir el número de piezas utilizadas. Agrupar en un solo elemento (\emph{TUIO2}) los bloques tangibles que representan una evento durante el transcurso de la creación de una secuencia, donde \emph{TUIO2} representa de manera gráfica estos eventos para finalmente ejecutar la secuencia. 
-
-\subsubsection{Historia de usuario: Procesamiento de datos del dispositivo de menor tamaño, y establecer tamaños en pantallas de ambos dispositivos }
-
-Para corregir los posibles problemas que puede causar en el entorno gráfico en el dispositivo \emph{TUIO2} al utilizar el microcontrolador \emph{ESP8266} cuando se ejecuta la aplicación, se plantea el uso de \emph{Raspberry Pi}, al igual que en \emph{TUIO1}.\
-
-Dado que la plataforma de juego está orientada a niños de corta edad, el tamaño de las pantallas debe ser el adecuado para una correcta visualización de los juegos. Se elije un tamaño de 7 pulgadas para el dispositivo \emph{TUIO1}, y de 3,5 pulgadas para el dispositivo \emph{TUIO2}.
-
-Tras evaluar ambas propuestas conjuntamente con \textbf{Francisco Moya Fernández}, son aceptadas y serán añadidas a la lista de tecnologías a utilizar.
+Dado que la plataforma de juego está orientada a niños de corta edad, el tamaño de las pantallas debe ser el adecuado para una correcta visualización de los juegos.
 
 
 \subsubsection{Tecnologías a utilizar.}
@@ -400,18 +180,14 @@ El dispositivo \emph{TUIO2} dispone de una pantalla LCD, de un tamaño de 3,5 pu
 \item \textbf{Sistema operativo y entorno de programación.} Para el desarrollo de la aplicación, se utilizará la distribución gratuita \textbf{«KivyPie»}. Esta distribución incluye el sistema operativo \textbf{«PipaOS»} basado en \textbf{«Raspbian»}, utilizado en proyectos hardware desde cero, que contiene el software mínimo para poner «Raspberry Pi» en funcionamiento. Incluye la herramienta para desarrollo \textbf{«Kivy».} Esta herramienta es un entorno de trabajo para aplicaciones multitáctiles de \textbf{«Python».}
 \end{itemize}
 
-Junto con \textbf{Francisco Moya Fernandez} se acuerda que las herramientas para el desarrollo de los programas de la plataforma de juego sean \textbf{Kivy} y \textbf{Python}. Se han elegido ambos lenguajes de programación debido a la facilidad y simplicidad de los mismos para desarrollar programas y entornos gráficos en aplicaciones con dispositivos multitáctiles.
-
-
-Las características expuestas, y la descripción de dispositivos y entornos de programación, están reflejadas en el capitulo.
+Las características expuestas, y la descripción de dispositivos y entornos de programación, están reflejadas en el \textbf{Capótulo 5. Tecnologías para el desarrollo.}.
 
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Iniciar sistema de localización en pantalla táctil capacitiva.
 \item Programa de pruebas para las comunicaciones entre dispositivos. 
 \end{itemize}
-
 
 \subsection{Iteración 5: Inicio del sistema de localización entre dispositivos y pruebas en las comunicaciones }
 
@@ -421,257 +197,60 @@ En esta iteración se tratan dos de los puntos más importantes de la plataforma
 
 El sistema de localización consiste en obtener las coordenadas de la posición del «Widget tangible TUIO2» sobre la pantalla táctil capacitiva del dispositivo \emph{TUIO1}, con el objetivo de generar un «efecto cristal», es decir, obtener una representación gráfica en la pantalla de \emph{TUIO2}, del cuadrante correspondiente a la representación gráfica de \emph{TUIO1}, y que cubre el dispositivo \emph{TUIO2}, como puede ser una imagen o una animación.\
 
-Para entender mejor el sistema de localización se presenta el siguiente ejemplo. Antes de posicionar \emph{TUIO2} sobre \emph{TUIO1}, las pantallas de ambos dispositivos muestran imágenes diferentes (ver Figura~\ref{fig:Localizacion1}).
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{localizacion1.pdf}
-\caption{Posición de los dispositivos antes de la interacción sobre la pantalla capacitiva}
-\label{fig:Localizacion1}
-\end{center}
-\end{figure}
-Al posicionar \emph{TUIO2} sobre la pantalla de \emph{TUIO1}, la pantalla de \emph{TUIO2} muestra la parte de imagen correspondiente que es tapada por el dispositivo (Figura~\ref{fig:Localizacion2}).
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{localizacion2.pdf}
-\caption{Posición de los dispositivos después de la interacción sobre la pantalla capacitiva}
-\label{fig:Localizacion2}
-\end{center}
-\end{figure}
-
-El procedimiento para obtener la posición, se consigue mediante el uso del sensor capacitivo de la propia pantalla de \emph{TUIO1}, que al detectar una variación de la capacitancia genera un evento táctil.
-El dispositivo \emph{TUIO2} produce tres eventos táctiles sobre la pantalla capacitiva. Estos eventos son generados por medio de tres almohadillas de goma conductora, que están conectadas al borne negativo de la «RaspberryPi». Esta conexión evita que el usuario tenga que sostener con su propia mano el dispositivo, haciendo de conexión a tierra el propio borne negativo.
-El diseño de los puntos de contacto es el que se muestra en la Figura~\ref{fig:Localizacion3}.
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{localizacion3.pdf}
-\caption{Disposición de las almohadillas conductoras en la parte inferior del «Widget tangible» para generar los eventos táctiles. }
-\label{fig:Localizacion3}
-\end{center}
-\end{figure}
-Los tres puntos de contacto son identificados A, B y C, que dan nombre a los vértices del triángulo rectángulo escaleno que forman. Se ha elegido este tipo de diseño ya que cada uno de los tres lados tiene una medida diferente, lo que hace que sea más fácil identificar cada segmento del triángulo, y así evitar posibles problemas cuando se localice cualquiera de sus vértices.
-
-Cuando \emph{TUIO2} está sobre la pantalla, los eventos táctiles generados, proporcionan la siguiente información al dispositivo \emph{TUIO1}: posición e ID del evento. Las coordenadas de la posición de cada evento táctil está expresada en pixels, por lo que cada evento producido será manejado en esas unidades de media (ver Figura~\ref{fig:Localizacion4}).\\
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{localizacion4.pdf}
-\caption{Coordenadas de los puntos A, B y C del «Widget tangible» sobre la pantalla capacitiva. }
-\label{fig:Localizacion4}
-\end{center}
-\end{figure}
-Estos datos son interpretados y tratados para calcular la posición de \emph{TUIO2} mediante una librería que ha sido desarrollada en \textbf{Python} por el propio autor del TFG.
-
-Todos los eventos táctiles generados sobre la pantalla capacitiva del dispositivo \emph{TUIO1} son manejados por la \textit{clase Widget} en \textbf{Python}, mediante el método \texttt{on\_touch\_down().}\\
-Este método obtiene la información de posición e ID del evento táctil producido, que son almacenados en la lista \texttt{touch[].}\\
-Se crea una librería específica para el manejo de esta lista.
-
-
 \subsubsection{Pruebas de comunicación.}
-
-La comunicación entre ambos dispositivos es realizada con la arquitectura \textbf{Cliente-Servidor}, donde el servidor es ejecutado en el dispositivo \emph{TUIO1}, y el cliente en \emph{TUIO2}.\
-
-El protocolo de comunicaciones aplicado es \textbf{TCP}\footnote{Transmission Control Protocol}.\
-Este protocolo es elegido, debido a que garantiza que los datos son entregados en su destino sin errores y en el mismo orden de transmisión, lo que garantiza que los datos transmitidos de los sensores utilizados, como de la posición de \emph{TUIO2}, son datos correctos.\
-
-La interfaz utilizada en el programa de pruebas de las comunicaciones es \emph{socket}.\ 
-\emph{Python} incluye esta interfaz en la biblioteca \texttt{socket}.
-
-\textbf{Lado servidor.}\
-\begin{itemize}
-\item Importar la librería para la interfaz:\\
-\texttt{from socket import *}\
-\item Construir un objeto \emph{socket}:\\
-\texttt{sock = socket(AF\_INET, SOCK\_STREAM)}\
-El parámetro \texttt{AF\_INET} hace referencia al protocolo IP (IPv4), y parámetro \texttt{SOCK\_STREAM} indica que es un \emph{socket} tipo TCP.\
-\item Definir IP y puerto de escucha mediante el método \texttt{bind:}\\
-\texttt{sock.bind(('0.0.0.0', 8888))}\
-\item Conexiones retenidas sin aceptar.\\
-\texttt{sock.listen(10)}\
-\item Aceptar nuevas conexiones mediante el método \texttt{accept}. Este método devuelve otro \emph{socket} que es usado para el diálogo con el cliente.\\
-\texttt{con, addr = sock.accept()}\
-\item Envío de datos al cliente mediante el método \texttt{send}.\\
-\texttt{con.send(output\_event.encode('utf-8'))}\\
-donde \texttt{output\_event} corresponde al evento a ser enviado, y \texttt{'utf-8'} al formato de codificación de caracteres (el cual debe ser el mismo en la parte del cliente).\
-\item Recepción de datos en el servidor mediante el método \texttt{recv}.\\
-\texttt{data = con.recv(1024)}\
-El tamaño de buffer especificado es 1024.\
-\item El evento de entrada es decodificado según el formato establecido para poder ser manejado en el programa.\\
-\texttt{input\_event = data. decode('utf-8')}\
-\end{itemize}\
-
-\textbf{Lado cliente.}\\
-\begin{itemize}
-\item Importar la librería para la interfaz:\\
-\texttt{from socket import *}\
-\item Construir un objeto textbf{socket}:\\
-\texttt{sock = socket(AF\_INET, SOCK\_STREAM)}\
-\item Conectar con el servidor mediante el método \texttt{connect}.\\
-\texttt{sock.connect(('localhost', 8888))}\\
-donde \texttt{'localhost'} corresponde al nombre de host para la interfaz de red loopback del servidor. En este caso se han ejecutado las pruebas de comunicaciones en el mismo dispositivo.\
-\item Envío de datos al servidor mediante el método \texttt{send}.\\
-\texttt{sock.send(output\_event.encode('utf-8'))}\\
-donde \texttt{output\_event} corresponde al evento a ser enviado, y \texttt{'utf-8'} al formato de codificación de caracteres (el cual debe ser el mismo en la parte del servidor).\
-\item Recepción de datos en el cliente mediante el método \texttt{recv}.\\
-\texttt{data = con.recv(1024)}\
-El tamaño de buffer especificado es 1024.\
-\item El evento de entrada es decodificado según el formato establecido para poder ser manejado en el programa.\\
-\texttt{input\_event = data.decode('utf-8')}\
-\end{itemize}\
-
-El programa de pruebas para las comunicaciones se valida, y será implementando mediante una máquina de estados, creando una librería propia para el manejo de eventos en las comunicaciones de ambos dispositivos.
+Establecer la aquitectura para la comunicación entre dispositivos, así como el protocolo de comunicaciones utilizado.
 
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Leer datos unidad de medición inercial \emph{MPU9250}.
 \item Diseño de una máquina de estados para las comunicaciones.
 \item Comunicar datos unidad de medición inercial \emph{MPU9250}. Diseño de máquina de estados.
 \end{itemize}
 
-
 \subsection{Iteración 6: Lectura de datos y diseño de máquina de estados de la unidad de medición inercial \emph{MPU9250}. Diseño de máquina de estados para las comunicaciones.}
 Uno de los objetivos específicos es adaptar sensores inerciales y ópticos para una mejor experiencia de juego, donde los elementos \emph{TUIO1} y \emph{TUIO2} interactúen entre sí, permitiendo la manipulación de la información entre los dispositivos.
 La unidad de medición inercial integrada en la plataforma, es el sensor \emph{MPU9250}. Este sensor formará parte del dispositivo \emph{TUIO2}. Esta destinado principalmente a capturar eventos de movimiento para generar acciones durante el transcurso del juego. Estos eventos son filtrados y comunicados con el dispositivo \emph{TUIO1}.
+
 \subsubsection{Lectura de datos de la unidad de medición inercial. Registros.}
 El sensor \emph{MPU9250} es la combinación de dos sensores, \emph{MPU-6500} y \emph{AK8963}. El sensor \emph{MPU-6500}, que contiene un giroscopio de 3 ejes, un acelerómetro de 3 ejes y un procesador digital de movimiento \emph{DMP}\footnote{Data Management Platform}. \emph{AK8963} es un magnetómetro digital de tres ejes.
 La comunicación con todo los registros del dispositivo se realiza utilizando \emph{I2C} a 400kHz.
-Los registros del sensor son manejados por la librería en \emph{Python} \emph{FaBo9Axis\_MPU9250}.
-Para poder utilizar la librería en nuestro programa es necesario instalar las dependencias:\
-\begin{console}
-$ pip install FaBo9Axis_MPU9250
-\end{console} %$
-Dentro del programa se importa la librería:\
-\texttt{import FaBo9Axis\_MPU9250}\
-Módulo para las comunicaciones \emph{I2C:}\\
-\texttt{import smbus}\
-Se crea el objeto \emph{mpu9250} para poder obtener las lecturas del sensor:\
-\texttt{mpu9250 = FaBo9Axis\_MPU9250.MPU9250()}\
-Las lecturas de los sensores son realizadas mediante la llamada a los siguientes métodos sobre el objeto \emph{mpu9250}:\
-\begin{itemize}
-\item Lectura de las variaciones en la aceleración lineal de los ejes \emph{x,y,z} del acelerómetro:\\ 
-\texttt{mpu9250.read\_accel()}\
-\item Lectura de los cambios angulares en los ejes \emph{x,y,z} del giróscopo:\\ \texttt{mpu9250.read\_gyro()}\
-\item Lectura de las variaciones de fuerza debidas al campo magnético gravitacional en los ejes \emph{x,y,z} del magnetómetro:\\ 
-\texttt{mpu9250.read\_mag()}\
-\end{itemize}
+
 \subsubsection{Diseño de máquina de estados de la unidad de medición inercial \emph{MPU9250}}
 Para comunicar la lectura de registros de los datos obtenidos por el sensor \emph{MPU9250} se realiza un diseño de máquina de estados.
+
 \subsubsection{Diseño de máquina de estados para las comunicaciones.}
-Para comunicar de forma fluida los eventos generados en ambos dispositivos se diseña a partir del programa de pruebas expuesto en la \textbf{Iteración 5}, una máquina de estados \textbf{FSM}\footnote{finite state machine} para administrar las comunicaciones. Tanto el \textbf{lado cliente} como el \textbf{lado servidor}, tendrán la misma arquitectura de diseño. La máquina de estados del lado cliente, esta formada por el siguiente conjunto de estados (ver Figura~\ref{fig:fsmclient}).\
-\begin{itemize}
-\item \textbf{Estado CLOSED}. Indica que el cliente se encuentra en un estado no operativo (cerrado) a la espera de recibir el evento \emph{create\_client} para cambiar al estado \emph{WAIT}.
-\item \textbf{Estado WAIT}. Estado donde las comunicaciones se encuentran a la espera de conectar con un servidor. El evento \emph{wait\_server} genera un «hilo» en el programa hasta que se alcanza la conexión con el servidor. Cuando el cliente conecta con el servidor se genera el evento \emph{conected} para cambiar al estado \emph{ESTABLISHED}.
-\item \textbf{Estado ESTABLISHED}. Una vez establecida la comunicación entre cliente y servidor se crean dos «hilos» en el programa. El evento \emph{wait\_input\_event} crea el primer «hilo», que espera recibir datos desde el lado servidor. El evento \emph{check\_output\_events} crea el segundo «hilo» para verificar si existen eventos para ser enviados al servidor. El evento \emph{send\_event} envia los eventos manejados en \emph{TUIO2} al servidor.\
-\end{itemize}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{fsmclient.pdf}
-\caption{Máquina de estados para las comunicaciones. Lado cliente. }
-\label{fig:fsmclient}
-\end{center}
-\end{figure}
-La máquina de estados del lado servidor, esta formada por el siguiente conjunto de estados (ver Figura~\ref{fig:fsmserver}).\
-\begin{itemize}
-\item \textbf{Estado CLOSED}. Indica que el servidor se encuentra en un estado no operativo (cerrado) a la espera de recibir el evento \emph{wait\_client} para cambiar al estado \emph{WAIT}.
-\item \textbf{Estado WAIT}. Estado donde las comunicaciones se encuentran a la espera de conectar con un cliente. Cuando un cliente conecta con el servidor se genera el evento \emph{conected} para cambiar al estado \emph{ESTABLISHED}.
-\item \textbf{Estado ESTABLISHED}. Una vez establecida la comunicación entre cliente y servidor se crean dos «hilos» en el programa. El evento \emph{wait\_input\_event} crea el primer «hilo», que espera recibir datos desde el lado cliente. Evento \emph{check\_outputs\_events} crea el segundo «hilo» para verificar si existen eventos para ser enviados al cliente. El evento \emph{send\_event} envia los eventos manejados en\emph{TUIO1} al cliente.
-\end{itemize}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{fsmserver.pdf}
-\caption{Máquina de estados para las comunicaciones. Lado servidor. }
-\label{fig:fsmserver}
-\end{center}
-\end{figure}
+Para comunicar de forma fluida los eventos generados en ambos dispositivos se diseña a partir del programa de pruebas expuesto en la \textbf{Iteración 5}, una máquina de estados \textbf{FSM}\footnote{finite state machine} para administrar las comunicaciones. Tanto el \textbf{lado cliente} como el \textbf{lado servidor}, tendrán la misma arquitectura de diseño. 
+
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidas para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Diseño software para la interfaz gráfica de usuario del dispositivo \emph{TUIO1}.
 \item Diseño software para la interfaz gráfica de usuario del dispositivo \emph{TUIO2}.
 \item Diseño de máquina de estados FSM para los dispositivos \emph{TUIO1} y \emph{TUIO2}
 \item Lectura de datos y diseño de la máquina de estados para el sensor de color \emph{TCS34725}.
 \end{itemize}
+
 \subsection{Iteración 7: Diseño software de las interfaces gráficas de usuario}
 Uno de los objetivos del presente TFG, es ofrecer un entorno gráfico simple, que permita al niño ser capaz de diseñar secuencias y modificarlas interactuando con los elementos tangibles.
-La interfaz gráfica ha sido desarrollada mediante la biblioteca \textbf{Kivy} de \textbf{Python} y consta de una pantalla principal, pantalla de juegos, pantalla de ayuda y pantalla de configuración. Ambos dispositivos han sido diseñados mediante el mismo método de administración de pantallas \textbf{ScreenManager}.\\
-Para ejecutar una aplicación en \textbf{Kivy}, es necesario declarar la clase \texttt{App}:\
-\texttt{from kivy.app import App}\
-La clase «App» es la base para crear aplicaciones \textbf{Kivy}. Es el punto de entrada principal en el bucle de ejecución de Kivy. Para iniciar el ciclo de vida de la aplicación se llama al método \texttt{App.run}.\
-Dentro del constructor de esta clase son creados los objetos principales, que en este caso corresponden con la máquina de estados del juego, y la máquina de estados de las comunicaciones.
-El archivo que contiene el diseño de la interfaz gráfica \texttt{main.kv}, es cargado mediante el método \texttt{Builder}.
-Para ello es necesario importar la clase:\
-\texttt{from kivy.lang import Builder}.\
-Este archivo define un «Widget» raíz que se conectará al atributo raíz de la aplicación y se utilizará como base del árbol de «Widgets» de la aplicación.
-Las diferentes pantallas son administradas mediante la clase \textbf{ScreenManager} de \textbf{Kivy}.
-\subsubsection{ScreenManager}
-\textbf{ScreenManager} es un «Widget» dedicado a administrar múltiples pantallas para aplicaciones y muestra solo una pantalla a la vez en cada una de las transiciones.\\
-Cada una de las pantallas corresponde con un archivo en lenguaje \textbf{Kivy}, y por lo tanto, de extensión .kv. Estos archivos están localizados en la carpeta data/screens de la carpeta raíz de la aplicación.\\
-Para utilizar ScreenManager se declara la biblioteca y se importar las clases \texttt{ScreenManager} y \texttt{Screen}.\
-\texttt{from kivy.uix.screenmanager import ScreenManager, Screen}.\
-Los iconos y fondos de pantalla utilizados en la aplicación para la interfaz se encuentran en la carpeta data/icons y data/fondos respectivamente de la carpeta raíz.\\
-\subsubsection{Barra de acción para el manejo de pantallas.}
-Una vez establecida la forma de mostrar e identificar las pantallas que dispone la aplicación, es necesario navegar por ellas de una forma fácil y rápida. Para ello se ha diseñado una barra de menú que se encuentra en la parte superior de la aplicación, y que muestra un icono para la navegación por pantallas, al igual que un icono que indica la conexión entre ambos dispositivos, y un botón de apagado de la aplicación.
-El diseño del menú esta implementado mediante la clase \textbf{BoxLayout}.\
-\texttt{from kivy.uix.boxlayout import BoxLayout}.\
-\textbf{BoxLayout} permite organizar de forma automática los diferentes botones de navegación.
-Esta barra de acción es declarada dentro del archivo KV de la aplicación principal, y en ella se indica los distintos elementos que la componen (ver Figura:\label{barra_menu}). 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{barra_menu.pdf}
-\caption{Barra de acción utilizada en el dispositivo principal. }
-\label{fig:barra_menu}
-\end{center}
-\end{figure}
+
 \subsubsection{Diseño de máquina de estados FSM para los dispositivos \emph{TUIO1} y \emph{TUIO2}}
-Para administrar los eventos generados sobre la platadorma de juego se implementa una máquina de estados en ambos dispositivos. Los eventos principales que se manejan son los siguientes:
-\begin{itemize}
-\item Eventos destinados a las comunicaciones.
-\item Eventos generados por los sensores \emph{MPU9250} y \emph{TCS34725}.
-\item Eventos destinados a la localización de \emph{TUIO2} y originados por el panel táctil capacitivo.
-\item Mensajes de información para mostrar en pantalla.
-\item Eventos para el administrador de pantallas.
-\end{itemize}
-El la estructura de la máquina de estados para ambos dispositivos (ver Figura~\ref{fig:fsmtuio}) maneja tres estados: \emph{IDLE, PLAYING y MENU}.
-\begin{itemize}
-\item \textbf{Estado IDLE.} Corresponde al estado de reposo del programa. Permanece a la espera de recibir el evento de comenzar el juego (\emph{init\_game}), que cambia al estado \emph{PLAYING}. Dentro del estado \emph{IDLE} tambien existe el evento\emph{menssage}, para mostrar mensajes de información en la interfaz gráfica.
-\item \textbf{Estado PLAYING}. Estado que indica que se esta ejecutando un juego. Dentro de este estado se manejan los siguientes eventos:
-\begin{itemize}
-        \item \emph{message}. Evento que muestra un mensaje mediante la interfaz gráfica.
-        \item \emph{timeout}. Vuelve al estado \emph{IDLE}.
-        \item \emph{touch}. Evento táctil. Este evento cambia al estado de \emph{MENU}.
-\end{itemize}
-\item \textbf{Estado MENU}. Este estado muestra en la interfaz gráfica, un menú para crear acciones sobre el juego. El evento \emph{menu\_options} muestra en la interfaz gráfica un tipo de opciones para el juego, según el tipo y desarrollo del juego. El evento \emph{clear} cambia al estado \emph{IDLE}
-\end{itemize}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{fsmtuio.pdf}
-\caption{Máquina de estados FSM de los dispositivos \emph{TUIO1} y \emph{TUIO2} }
-\label{fig:fsmtuio}
-\end{center}
-\end{figure}
+Para administrar los eventos generados sobre la platadorma de juego se implementa una máquina de estados en ambos dispositivos. 
+
 \subsubsection{Lectura de datos del sensor de color \emph{TCS34725}}
 El dispositivo \emph{TCS34725} proporciona un retorno digital de los valores de detección de luz roja, verde y azul (RGB). Dispone de un filtro de bloqueo \textbf{IR}\footnote{Infrared radiation} para una mejor detección de la luz ambiente.\
 La integración de este dispositivo hace posible una interacción directa con el medio que le rodea, lo que permite ampliar las opciones de juego dentro de la plataforma.\
 La comunicación con todo los registros del dispositivo se realiza utilizando \emph{I2C} a 400kHz.
-Los registros del sensor son manejados por la librería en \emph{Python} \emph{Adafruit\_TCS34725}.
-Para poder utilizar la librería en nuestro programa es necesario instalar las dependencias:\
-\begin{console}
-$ sudo pip install adafruit-tcs34725
-\end{console} %$
-Dentro del programa se importa la librería:\\
-\texttt{import Adafruit\_TCS34725}\
-Módulo para las comunicaciones \emph{I2C:}\\
-\texttt{import smbus}\
-Se crea el objeto \emph{tcs} para acceder las lecturas del sensor:\
-\texttt{tcs = Adafruit\_TCS34725.TCS34725()}\
-Los valores de las lecturas sobre los registros del sensor, son obtenidas mediante la llamada al método \emph{get\_raw\_data()}:\\
-\texttt{r, g, b= tcs.get\_raw\_data()}
+
 \subsubsection{Diseño de máquina de estados del sensor de color \emph{TCS34725}}
 Para comunicar la lectura de registros de los datos obtenidos por el sensor \emph{TCS34725} se realiza un diseño de máquina de estados.
+
 \subsubsection{Próximas iteraciones e historias de usuario.}
-Se acuerda para la próxima iteración los siguientes puntos:
+Quedan establecidos para la próxima iteración los siguientes puntos:
 \begin{itemize}
 \item Diseño software de juego entre los dispositivos \emph{TUIO1} y \emph{TUIO2}. Manejo y comunicación de eventos generados por los sensores \emph{MPU9250}, \emph{TCS34725} y eventos táctiles.
 \end{itemize}
+
 \subsection{Iteración 8: Diseño software de juego en la plataforma.}
 \subsubsection{Próximas iteraciones e historias de usuario.}
 Se acuerda para la próxima iteración los siguientes puntos:
