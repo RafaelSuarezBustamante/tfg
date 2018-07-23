@@ -1,0 +1,60 @@
+
+<PaintGame>:
+    size: self.size
+    orientation: 'vertical'
+
+<ColorPanel>:
+    size_hint: 1 , .15
+    orientation: 'tb-lr'
+    #canvas.before:
+    #CursorButton:
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['blue']
+        on_press: root.change_color('blue')
+
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['red']
+        on_press: root.change_color('red')
+
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['yellow']
+        on_press: root.change_color('yellow')
+
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['green']
+        on_press: root.change_color('green')
+
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['magenta']
+        on_press: root.change_color('magenta')
+
+    Button:
+        size_hint: .33, .33
+        background_color: root.sources['cyan']
+        on_press: root.change_color('cyan')
+
+    Button:
+        size_hint: .10, 1
+        on_press: root.cursor_state()
+        background_normal: 'data/icons/paintgame/cursor_icon.jpg' if not root.cursor else 'data/icons/paintgame/paint_icon.jpg'
+
+    Button:
+        size_hint: .10, 1
+        on_press: root.clear_board()
+        background_normal: 'data/icons/paintgame/new_icon.png'
+
+    Button:
+        size_hint: .10, 1
+        on_press: root.exit_game()
+        background_normal: 'data/icons/paintgame/back_icon.png'
+
+<Board>:
+    size: 480, 280
+
+
+

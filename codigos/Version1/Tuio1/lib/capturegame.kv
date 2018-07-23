@@ -1,0 +1,69 @@
+
+<Menssage_SelectorGames>:
+    source: self.source
+
+<MenuScreen>:
+    FloatLayout:
+        id: layout
+        Image:
+            id: menssage
+            pos: 0,100
+            size_hint: 1, .7
+            source: root.source if root.source else "None"
+
+<CaptureGame>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: root.sources['wallpaper'] if root.sources else "None"
+
+    FloatLayout:
+        id: layout
+
+        Button:
+            id: item_1
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .2, 'center_y': .6 }
+            background_disabled_normal: root.sources['item_1'] if root.sources else "None"
+            on_press: root.play_sound('item_1')
+            disabled: True
+        Button:
+            id: item_2
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .2, 'center_y': .25}
+            background_disabled_normal: root.sources['item_2'] if root.sources else "None"
+            on_press: root.play_sound('item_2')
+            disabled: True
+
+        Button:
+            id: item_3
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .5, 'center_y': .6 }
+            background_disabled_normal: root.sources['item_3'] if root.sources else "None"
+            on_press: root.play_sound('item_3')
+            disabled: True
+
+        Button:
+            id: item_4
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .5, 'center_y': .25 }
+            background_disabled_normal: root.sources['item_4'] if root.sources else "None"
+            on_press: root.play_sound('item_4')
+            disabled: True
+
+        Button:
+            id: item_5
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .8, 'center_y': .6 }
+            background_disabled_normal: root.sources['item_5'] if root.sources else "None"
+            on_press: root.play_sound('item_5')
+            disabled: True
+
+        Button:
+            id: item_6
+            size_hint: [.25, .25]
+            pos_hint: {'center_x': .8, 'center_y': .25 }
+            background_disabled_normal: root.sources['item_6'] if root.sources else "None"
+            on_press: root.play_sound('item_6')
+            disabled: True

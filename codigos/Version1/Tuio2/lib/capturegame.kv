@@ -1,0 +1,118 @@
+<ItemScreen>:
+    size: self.size
+    pos: self.pos
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: root.source
+
+<MenssageScreen>:
+    size: self.size
+    pos: self.pos
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'data/capture_game/wallpapers/menssage_wallpaper.jpg'
+    Button:
+        id: home_button
+        pos: 75, 40
+        size_hint: .2, .2
+        background_normal: 'data/capture_game/icons/menu/home_icon.jpg'
+
+
+<CaptureMenu>:
+    Widget:
+        canvas:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'data/capture_game/wallpapers/menu_wallpaper.jpg'
+
+        Button:
+            pos: 30, 200
+            size: 150, 50
+            background_normal: 'data/capture_game/icons/menu/animals_icon.jpg'
+            on_press: root.events.put(("select_game", "animals_game"))
+
+        Button:
+            pos: 30, 130
+            size: 150, 50
+            background_normal: 'data/capture_game/icons/menu/colors_icon.jpg'
+            on_press: root.events.put(("select_game", "colors_game"))
+
+        Button:
+            pos: 30, 60
+            size: 150, 50
+            background_normal: 'data/capture_game/icons/menu/numbers_icon.jpg'
+            on_press: root.events.put(("select_game", "numbers_game"))
+
+        Button:
+            pos: 300, 15
+            size: 100, 50
+            background_normal: 'data/capture_game/icons/menu/home_icon.jpg'
+            on_press: root.events.put(("stop_game", ""))
+
+<CaptureScreen>:
+    size_hint: root.scale_x , root.scale_y
+    pos: root.trasl_x, root.trasl_y
+
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            origin: root.center
+    canvas.after:
+        PopMatrix
+
+    canvas:
+        Rectangle:
+            pos: 0 - root.trasl_x * 0.6, 0 - root.trasl_y * 0.6666
+            pos: 0, 0
+            size: root.size
+            source: root.sources['wallpaper'] if root.sources else "None"
+
+    FloatLayout:
+        id: layout
+        Button:
+            id: item_1
+            size_hint: .25 , .25
+            pos_hint: {'center_x': .2, 'center_y': .6}
+            background_normal: root.sources['item_1'] if root.sources else "None"
+            on_press: root.capture_item('item_1')
+
+        Button:
+            id: item_2
+            size_hint: .25 , .25
+            pos_hint: {'center_x': .2, 'center_y': .25}
+            background_normal: root.sources['item_2'] if root.sources else "None"
+            on_press: root.capture_item('item_2')
+
+        Button:
+            id: item_3
+            size_hint: .25 , .25
+            pos_hint: {'center_x': .5, 'center_y': .6}
+            background_normal: root.sources['item_3'] if root.sources else "None"
+            on_press: root.capture_item('item_3')
+
+        Button:
+            id: item_4
+            size_hint: .25 , .25
+            pos_hint: {'center_x': .5, 'center_y': .25}
+            background_normal: root.sources['item_4'] if root.sources else "None"
+            on_press: root.capture_item('item_4')
+
+        Button:
+            id: item_5
+            size_hint: .25, .25
+            pos_hint: {'center_x': .8, 'center_y': .6}
+            background_normal: root.sources['item_5'] if root.sources else "None"
+            on_press: root.capture_item('item_5')
+
+        Button:
+            id: item_6
+            size_hint: .25 , .25
+            pos_hint: {'center_x': .8, 'center_y': .25}
+            background_normal: root.sources['item_6'] if root.sources else "None"
+            on_press: root.capture_item('item_6')
