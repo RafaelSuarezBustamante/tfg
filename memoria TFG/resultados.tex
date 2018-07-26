@@ -2,7 +2,7 @@
 \label{chap:resultados}
 
 
-\drop{A} lo largo de este capítulo, se desarrolla los resultados obtenidos según la evolución en cada uno de los aspectos de la plataforma de juego.
+\drop{A} ~lo largo de este capítulo, se desarrolla los resultados obtenidos según la evolución en cada uno de los aspectos de la plataforma de juego.
 \begin{itemize}
 \item Estructura de la aplicación.
 \item Comunicaciones cliente-servidor.
@@ -379,17 +379,27 @@ El método \texttt{Vector()}, de la librería \texttt{kivy}, calcula la distanci
 Método para verificar si dos eventos táctiles, cuyas distancias ya han sido determinadas, corresponden con uno de los lados del triángulo en el \emph{widget tangible}, donde \textit{m} corresponde con la distancia entre los dos eventos táctiles, \textit{i} el tamaño de la lista \texttt{puls[]}, y \texttt{a} el número de iteración del bucle que recorre cada uno de los elementos de la lista.
 
 Este método es llamado cada vez que el método \texttt{determinar\_distancias()} es invocado.
-Se comprueba si la distancia entre los dos puntos corresponde con el rango de medidas establecidas para los lados del triángulo del \emph{widget tangible}. Los rangos de medida se muestran en la siguiente tabla (~\ref{tab:intervalos-coordenadas}).
+Se comprueba si la distancia entre los dos puntos corresponde con el rango de medidas establecidas para los lados del triángulo del \emph{widget tangible}. Los rangos de medida se muestran en la tabla ~\ref{tab:intcor}.
 
-\begin{table}[hp]
+\begin{table}[H]
 \centering
 {\small
-\input{tables/intervalos-coordenadas.tex}
+\begin{tabular}{p{.2\textwidth}p{.2\textwidth}}
+  \tabheadformat
+  \tabhead{Rango}   &
+  \tabhead{Segmento del triángulo}  \\
+\hline
+(120,150) & AB \\
+\hline
+(160,150) & BC \\
+\hline
+(210,260) & AC
+\end{tabular}
 }
-\caption[Intervalos de medida de cada segmento del triángulo]
-{Intervalos de medida de cada segmento del triángulo}
-\label{tab:intervalos-coordenadas}
+\caption[Intervalos de medida de cada segmento del triángulo]{Intervalos de medida de cada segmento del triángulo}
+\label{tab:intcor}
 \end{table}
+
 Si la medida corresponde con alguno de los rangos establecidos, dicha medida es almacenada junto con las coordenadas de ambos eventos en la lista \texttt{dist[]}. Por ejemplo, si la distancia entre los dos eventos táctiles es correcta, y corresponde al segmento \textbf{AB}, los datos son añadidos en la lista \texttt{dist[]}:
 
 \texttt{self.dist.append((m,'AB',toq1,toq2)) }
@@ -579,13 +589,254 @@ Las variaciones en el ángulo se deben principalmente a errores del sensor capac
 
 \section{Diseño software de la interfaz gráfica.}
 
+\subsection{Manejo de eventos de la interfaz.}
+
+Todos los eventos relacionados con cambios producidos en las representaciones gráficas en la plataforma de juego, son gestionados con los métodos de la clase \texttt{InterfaceManagement}, y el objeto de clase \texttt{ScreenManager}.
+
+\texttt{InterfaceManagement} maneja los eventos de entrada desde el módulo principal \texttt{Tuio1FSM/Tuio2FSM}, y los eventos táctiles procedentes desde la propia interfaz gráfica de usuario.
+
+\texttt{ScreenManager} gestiona los eventos de entrada desde los módulos dedicados a juegos, principalmente para realizar cambios de pantalla (\texttt{Screen}).
+
+\textbf{Instancia del objeto \texttt{screenmanager}.}
+
+El objeto \texttt{screenmanager} es instanciado de manera global, para facilitar el manejo de eventos gráficos por el resto de los módulos de la aplicación, ya que los juegos disponen de sus propias pantallas (\texttt{Screens}), y sus propios objetos gráficos, que son añadidos a las mismas.
+
+La estructura del manejo y gestión de eventos sigue una distribución secuencial, como se muestra en la Figura~\ref{fig:interfacevent}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{interface_events.jpg}
+\caption{Estructura de la gestión de eventos del módulo \texttt{InterfaceManagement()}.}
+\label{fig:interfacevent}
+\end{center}
+\end{figure}
 
 
-\section{Lectura, tratamiento, y comunicación de datos en los sensores.}
+\subsection{Módulo para el manejo de la interfaz \texttt{InterfaceManagement}.}
+
+\textbf{Módulos \texttt{ScreenManager} y \texttt{Screen}.}
+
+\texttt{ScreenManager} y \texttt{Screen}, son módulos del paquete \texttt{uix} de la librería \texttt{Kivy}, que disponen de los métodos de clase básicos para el diseño, y manejo de eventos gráficos generados durante el transcurso de la aplicación. 
+
+\texttt{ScreenManager} es un \emph{widget} dedicado a administrar múltiples pantallas en la aplicación. Muestra solo una pantalla (\texttt{Screen}) a la vez, y usa la librería \texttt{TransitionBase} para cambiar de una pantalla a otra. 
+
+\texttt{Screen} es un objeto destinado a ser utilizado con \texttt{ScreenManager}, donde son incorporados los diferentes elementos que componen la interfaz gráfica de usuario.
+
+\subsubsection{Funcionamiento básico de \texttt{ScreenManager}.}
+
+Importar módulos: \texttt{from kivy.uix.screenmanager import ScreenManager , Screen}
+
+Crear el objeto \texttt{sm} (\emph{ScreenManager}): \texttt{sm = ScreenManager()}
+
+Crear una pantalla: \texttt{screen = Screen(name='screen\_1')}
+
+Añadir una pantalla al administrador: \texttt{sm.add\_widget(screen)}
+
+Cambiar a la pantalla \texttt{'screen\_1'}: \texttt{sm.current = 'screen\_1'}
+
+
+\subsubsection{Clases de la interfaz gráfica.}
+
+\textbf{Clase \texttt{Widget()}}. Clase base requerida para crear \emph{widgets}.
+
+Método de importación del módulo: \texttt{from kivy.uix.widget import Widget} //
+
+\textbf{Clase \texttt{Button()}.} \texttt{Button} es una clase del módulo \texttt{Label}, que dispone de acciones asociadas, que son ejecutadas al ser presionado el botón, o cuando se deja de presionar. //
+
+Método de importación del módulo: \texttt{from kivy.uix.button import Button}
+
+
+\subsubsection{Pantallas (\texttt{Screens}), manejadas por los gestores de eventos \texttt{Tuio1FSM/Tuio2FSM}.}
+
+\begin{itemize}
+\item \textbf{Pantalla Logo. \texttt{LogoScreen}}.
+Pantalla de bienvenida, que ejecuta una pequeña animación del nombre de la plataforma, al iniciar la aplicación.
+\item \textbf{Pantalla Idle. \texttt{IdleScreen}.}
+Pantalla que muestra una imagen (fondo de pantalla), indicando que la conexión no ha sido establecida. Se mantiene en ese estado hasta ejecutar el método de cambio de pantalla desde el gestor de eventos principal.
+\item \textbf{Pantalla Main. \texttt{MainScreen}.}
+Pantalla principal de la aplicación, una vez son establecidas las comunicaciones entre ambos dispositivos.
+\end{itemize}
+
+
+Métodos de clase para el manejo de la interfaz, con el módulo \texttt{InterfazManagement} \ref{tab:metointer}:
+\begin{table}[H]
+\centering
+{\small
+\begin{tabular}{p{.3\textwidth}p{.6\textwidth}}
+  \tabheadformat
+  \tabhead{Método}   &
+  \tabhead{Descripción}  \\
+\hline
+\texttt{init\_interface()} & Inicio de la interfaz gráfica. Cambio a la pantalla \texttt{'logo\_screen'} (pantalla de bienvenida).  \\
+\hline
+\texttt{create\_event()} & Añade a la cola de eventos con el método \texttt{put()}, el argumento de entrada al método. \\
+\hline
+\texttt{get\_event()} & Obtiene el evento de la cola de eventos, con el método \texttt{get()}. \\
+\hline
+\texttt{dipatch\_event()} & Según el tipo de evento, se ejecutan los métodos de clase. \\
+\hline
+\texttt{main\_state()} & Ejecuta un cambio a la pantalla \texttt{'main\_screen'} con \texttt{ScreenManager}. \\
+\hline
+\texttt{idle\_state()} & Ejecuta un cambio a la pantalla \texttt{'idle\_screen'} con \texttt{ScreenManager}. \\
+\hline
+\texttt{close\_interface()} & Termina todos los procesos de la interfaz y de la aplicación, con el método texttt{stop()} de la clase \texttt{App}. \\
+\end{tabular}
+}
+\caption[Métodos de la clase \texttt{InterfaceManagement()}]{Métodos de la clase \texttt{InterfaceManagement()}}
+\label{tab:metointer}
+\end{table}
 
 
 
-\section{Actualización software de la aplicación.}
+\section{Lectura y configuración de sensores.}
+
+
+\subsection{Unidad de medición inercial MPU-9255.}
+La unidad de medición inercial integrada en la plataforma, es el sensor \emph{MPU9255}. Este sensor forma parte del dispositivo \emph{TUIO2}. Esta destinado principalmente a capturar eventos de movimiento, para generar acciones durante el transcurso del juego. Al realizar movimientos angulares sobre los ejes X,Y,Z del dispositivo \emph{TUIO2}, se generan unos eventos que son filtrados y comunicados al dispositivo \emph{TUIO1}, para ser ejecutados durante el transcurso del juego. Por ejemplo, girar una pieza representada en \emph{TUIO1}
+
+\subsubsection{Conexionado Bus I2C MPU-9255.}
+
+
+La conexión con la placa para el desarrollo \emph{Raspberry Pi} para comunicaciones \emph{I2C}, se realiza mediante 4 líneas (ver Figura~\ref{fig:MPU9255_I2C}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{MPU9255_PINOUT.png}
+\caption{Esquema de conexiones con Raspberry Pi para comunicaciones I2C.}
+\label{fig:MPU9255_PINOUT}
+\end{center}
+\end{figure}
+
+
+\subsubsection{Configuración y lectura, de las posiciones de memoria MPU-9255.}
+
+Para establecer comunicaciones mediante \emph{Bus I2C}, entre \emph{Raspberry Pi} y el \emph{sensor MPU-9255}, es necesario importar la librería: \texttt{smbus}
+
+Las comunicaciones con el \emph{Bus I2C}, son ejecutadas instanciando el objeto de de clase: \texttt{bus = smbus.SMBus(1)}
+
+Para leer datos de los registros de memoria, se utiliza el método: \texttt{bus.read\_byte\_data()}. Los argumentos de entrada del método son la dirección de memoria del dispositivo, y la dirección del registro que se desea leer.
+
+Para la escritura de datos, se emplea el método: \texttt{bus.write\_byte\_data()}, que toma como argumentos de entrada la dirección del dispositivo, la dirección a la que se desea acceder, y el valor a escribir en la dirección de memoria.
+
+La dirección por defecto del sensor \emph{MPU-9255} es: \texttt{0x68}
+
+El sensor magnetómetro dispone de una dirección propia para las comunicaciones \emph{I2C}: \texttt{0x0C}
+
+Es necesario definir la escala de lectura de cada uno de los sensores. Para ello hay que acceder a la zona de memoria, donde están ubicadas estas configuraciones.
+
+Las direcciones de memoria son:
+\begin{itemize}
+\item Configuración del giroscopio para un fondo de escala de +-250dps: dirección \texttt{0x1B} establecer a \texttt{0x00}.
+\item Configuración del acelerómetro para un fondo de escala de +- 2g: dirección \texttt{0x1C} establecer a \texttt{0x00}.
+\item Configuración del magnetómetro para un fondo de escala de 14 \emph{bits} dirección \texttt{0x0A} establecer a \texttt{0x00}.
+\end{itemize}
+
+Tanto el giroscopio, acelerómetro, y magnetómetro, guardan las lecturas de los valores en el mapa de registro del dispositivo. Las direcciones de memoria son las siguientes:
+\begin{itemize}
+\item Rango direcciones de memoria datos de lectura del giroscopio: \texttt{0x43} - \texttt{0x48}
+\item Rango direcciones de memoria datos de lectura del acelerómetro: \texttt{0x3B} - \texttt{0x40}
+\item Rango direcciones de memoria datos de lectura del magnetómetro: \texttt{0x03} - \texttt{0x08}
+\end{itemize}
+
+\textbf{Importante a tener en cuenta:} las comunicaciones \emph{I2C} transfieren las lecturas \emph{byte} a \emph{byte}, por lo que el orden de lectura arroja una interpretación erronea. Es necesario invertir el orden de la lectura de \emph{bytes}. 
+
+
+\subsubsection{Métodos de la clase \texttt{MPU-9255}.}
+
+\textbf{Métodos de clase \ref{tab:metompu}}.
+\begin{table}[H]
+\centering
+{\small
+\begin{tabular}{p{.3\textwidth}p{.6\textwidth}}
+  \tabheadformat
+  \tabhead{Método}   &
+  \tabhead{Descripción}  \\
+\hline
+\texttt{configure\_MPU9255()} & Configuración de la escala del acelerómetro y giroscópio.  \\
+\hline
+\texttt{sleep\_offMPU()} & Establece en activo el sensor MPU-9255, para regresar datos de lectura de las magnitudes. \\
+\hline
+\texttt{configure\_AK8963()} & Configuración de la escala de lectura del magnetómetro. \\
+\hline
+\texttt{sleep\_offAK()} & Establece en activo el sensor AK8963, para regresar datos de lectura de las magnitudes. \\
+\hline
+\texttt{read\_accel()} & Retorno de datos de la aceleración. \\
+\hline
+\texttt{read\_gyro()} & Retorno de lectura de datos de los desplazamientos angulares del sensor. \\
+\hline
+\texttt{read\_magnet()} & Retorno de valores obtenidos por el magnetómetro AK8963. \\
+\end{tabular}
+}
+\caption[Métodos de la clase \texttt{MPU-9255}]{Métodos de la clase \texttt{MPU-9255}}
+\label{tab:metompu}
+\end{table}
+
+
+\subsection{Sensor de color.}
+Los sensores de color detectan el color de una superficie, y entregan la información de manera digital.
+El dispositivo implementado es el sensor de color \emph{TCS34725}, que proporciona un retorno digital de los valores de detección de luz roja, verde y azul (RGB).
+
+La integración de este dispositivo hace posible una interacción directa con el medio que le rodea, lo que permite ampliar las opciones de juego dentro de la plataforma.
+
+
+\subsubsection{Conexionado Bus I2C TCS34725 }
+
+La conexión con la placa para el desarrollo \emph{Raspberry Pi} para comunicaciones \emph{I2C}, se realiza mediante 4 líneas (ver Figura~\ref{fig:conexioncolor})
+
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1\textwidth]{color_pinout.png}
+\caption{Conexionado TCS34725 Bus I2C con Raspberry Pi.}
+\label{fig:conexioncolor}
+\end{center}
+\end{figure}
+
+
+
+\subsubsection{Configuración y lectura, de las posiciones de memoria TCS3472.}
+
+Para establecer comunicaciones mediante \emph{Bus I2C}, entre \emph{Raspberry Pi} y el \emph{sensor TCS3472}, es necesario importar la librería: \texttt{smbus}
+
+Las comunicaciones con el \emph{Bus I2C}, son ejecutadas instanciando el objeto de de clase: \texttt{bus2 = smbus.SMBus(1)}
+
+Para leer datos de los registros de memoria, se utiliza el método: \texttt{bus2.read\_byte\_data()}. Los argumentos de entrada del método son la dirección de memoria del dispositivo, y la dirección del registro que se desea leer.
+
+Para la escritura de datos, se emplea el método: \texttt{bus2.write\_byte\_data()}, que toma como argumentos de entrada la dirección del dispositivo, la dirección a la que se desea acceder, y el valor a escribir en la dirección de memoria.
+
+La dirección por defecto del sensor \emph{TCS3472} es: \texttt{0x29}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Diseño de las aplicaciones.}
+
+\subsection{Aplicación sensor resistivo.}
+\subsubsection{Máquinas de estados finitos sensor resistivo.}
+
+
+\subsection{Aplicación sensor capacitivo.}
+\subsubsection{Máquinas de estados finitos sensor capacitivo.}
+
+
+\subsection{Aplicación sistema tangible orientada a la programación.}
+\subsubsection{Máquinas de estados finitos sistema tangible.}
+
+
+
+
+
+
+\section{Pruebas y validaciones de librerías y módulos.}
 
 
 
